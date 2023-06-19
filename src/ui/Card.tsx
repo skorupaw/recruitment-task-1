@@ -20,21 +20,27 @@ const cardStyle = cva("bg-white rounded-xl w-52 h-60 border-2 border-solid flex 
 
 export function Card({ emoji, title, description, isSelected, onSelect = () => null }: CardProps) {
   return (
-    <motion.article whileHover={{ scale: 1.025 }} whileTap={{ scale: 0.95 }} className={cardStyle({ selected: isSelected })} onClick={onSelect}>
+    <motion.article
+      data-testid={`mood-card-${title}`}
+      whileHover={{ scale: 1.025 }}
+      whileTap={{ scale: 0.95 }}
+      className={cardStyle({ selected: isSelected })}
+      onClick={onSelect}
+    >
       <AnimatePresence>
-      {isSelected && (<div className="absolute top-2 right-2">
-        {"✅"}
-      </div>)} 
+        {isSelected && <div className="absolute top-2 right-2">{"✅"}</div>}
       </AnimatePresence>
       <div className="flex justify-center items-center w-ful py-4">
-        <span className="text-6xl" role="img">{emoji}</span>
+        <span className="text-6xl" role="img">
+          {emoji}
+        </span>
       </div>
       <div className="flex flex-col justify-center items-center pb-6 px-2">
         <h2 className="font-bold text-lg">{title}</h2>
         <p className="text-center">{description}</p>
-      </div> 
+      </div>
     </motion.article>
-  )
+  );
 }
 
 export default Card
