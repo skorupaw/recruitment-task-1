@@ -48,6 +48,8 @@ npm run serve:graphql
 <details>
 <summary><strong>REST API:</strong></summary>
 <p></p>
+
+
 GET request should be send to http://localhost:4000/api/moods
 
 Types for the REST response can be found in [./src/types/rest/index.ts](./src/types/rest/index.ts)
@@ -76,6 +78,8 @@ Types for the REST response can be found in [./src/types/rest/index.ts](./src/ty
 <details>
 <summary><strong>GraphQL API:</strong></summary>
 <p></p>
+
+
 To run `<App />` in GraphQL mode go to [./src/main.tsx](./src/main.tsx) and change `Root` to `<Root type="graphql">`
 
 Send query request to http://localhost:4000/graphql
