@@ -4,11 +4,12 @@ The following task is a great opportunity to show us your experience, style, and
 
 ## General guidelines:
 
-- You can take a look around the project and change every part of it, but all the tasks can be achieved modifying the `App.tsx` and files in `/components` folder 
+- You can take a look around the project and change every part of it, but all the tasks can be achieved modifying only the `App.tsx` and files in `/components` folder.
 
 ## Description
 
 ## Starting 
+Before you start coding:
 
 To start dev server run with frontend application run:
 ```cmd
@@ -19,6 +20,7 @@ npm run dev
 <summary><strong>With REST:</strong></summary>
 To start the REST server run:
 
+
 ```cmd
 npm run serve:rest
 ```
@@ -27,6 +29,7 @@ npm run serve:rest
 <details>
 <summary><strong>With GraphQL:</strong></summary>
 To start the GraphQL server run:
+
 
 ```cmd
 npm run serve:graphql
@@ -44,10 +47,9 @@ Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.
 <summary><strong>REST API:</strong></summary>
 
 
-Send GET request to http://localhost:4000/api/moods
+GET request should be send to http://localhost:4000/api/moods
 
 Types for the REST response can be found in [./src/types/rest/index.ts](./src/types/rest/index.ts)
-
 
 Example REST response:
 ```json
@@ -69,7 +71,7 @@ Example REST response:
 </details>
 
 <details>
-<summary>GraphQL API:</summary>
+<summary><strong>GraphQL API:</strong></summary>
 To run `<App />` in GraphQL mode go to [./src/main.tsx](./src/main.tsx) and change `Root` to `<Root type="graphql">`
 
 Send query request to http://localhost:4000/graphql
