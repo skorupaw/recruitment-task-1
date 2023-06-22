@@ -12,7 +12,7 @@ The following task is a great opportunity to show us your experience, style, and
 ## Starting 
 Before you start coding:
 
-Start dev server run with frontend application run:
+Start dev server with frontend application run:
 ```cmd
 npm run dev
 ```
@@ -50,9 +50,12 @@ npm run serve:graphql
 <p></p>
 
 **URL:**
+
+
 _GET_ request should be send to http://localhost:4000/api/moods
 
 **Types:**
+
 Types for the REST response can be found in [./src/types/rest/index.ts](./src/types/rest/index.ts)
 
 **Example response**
@@ -90,7 +93,7 @@ Send query request to http://localhost:4000/graphql
 
 Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./src/types/graphql/index.ts)
 
-<p>Example GraphQL response:</p>
+**Example response**
 
 
 ```json
@@ -124,14 +127,14 @@ Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./
 <summary><strong>REST API:</strong></summary>
 <p></p>
 
-In case of REST the add query parameter to url `limit=3`.
+Add query parameter to url `limit=3`.
 </details>
 
 <details>
 <summary><strong>GraphQL API:</strong></summary>
 <p></p>
 
-In case of GraphQL the query variable `{"limit": 3}`.
+Add query variable `{"limit": 3}`.
 </details>
 
 ---
@@ -142,13 +145,46 @@ In case of GraphQL the query variable `{"limit": 3}`.
 
 - [ ] Implement pagination functionality. The `Navigation` component should have two optional props: `onNext` and `onPrevious`. Add appropriate handles to alow user to: 
 
-By clicking "Next" view next 3 moods. This should increase the limit by 3 and skip by 3. 
-By clicking "Previous" view previous 3 moods. This should decrease limit by 3 and skip by 3.
+  - [ ] By clicking "Next" view next 3 moods. This should increase the limit by 3 and skip by 3. 
+
+  - [ ] By clicking "Previous" view previous 3 moods. This should decrease limit by 3 and skip by 3.
+
+<details>
+<summary><strong>REST API:</strong></summary>
+<p></p>
+
+Extend query variables by adding `&skip=3`.
+</details>
+
+<details>
+<summary><strong>GraphQL API:</strong></summary>
+<p></p>
+
+Extend query variables by adding `{"skip": 3}`.
+</details>
 
 ---
 
-- [ ] Add search functionality. When a user types something into the search input, we should make an API call to `http://localhost:4000/api/moods?limit=3&search={search}` and display the results accordingly.
+- [ ] Add search functionality. Without impacting the previous functionality. When a user types something into the search input, we should make an API call and display the results accordingly.
+
+<details>
+<summary><strong>REST API:</strong></summary>
+<p></p>
+
+Request variables should be set to `?limit=3&search="<search_query>"`
+</details>
+
+<details>
+<summary><strong>GraphQL API:</strong></summary>
+<p></p>
+
+Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
+</details>
+
+---
 
 - [ ] Add the ability to select "mood cards" using the `isSelected` and `onSelect` props of the `Card` component. The selection state should remain unaffected by searching and navigation.
+
+---
 
 - [ ] Implement the functionality to send selected "moods" to our API. Utilize the `onSend` prop from the `Footer` component in the `App` component.
