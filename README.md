@@ -143,11 +143,11 @@ Add query variable `{"limit": 3}`.
 
 ---
 
-- [ ] Implement pagination functionality. The `Navigation` component should have two optional props: `onNext` and `onPrevious`. Add appropriate handles to alow user to: 
+- [ ] Implement pagination functionality. The [`Navigation`](./src/ui/Navigation.tsx) component should have two optional props: `onNext` and `onPrevious`. Add appropriate handles to alow user to: 
 
-  - [ ] By clicking "Next" view next 3 moods. This should increase the limit by 3 and skip by 3. 
+  - [ ] By clicking "Next" display 3 next moods from API (increase the `limit` by 3 and `skip` by 3)
 
-  - [ ] By clicking "Previous" view previous 3 moods. This should decrease limit by 3 and skip by 3.
+  - [ ] By clicking "Previous" display 3 previous moods from API (decrease `limit` by 3 and `skip` by 3)
 
 <details>
 <summary><strong>REST API:</strong></summary>
