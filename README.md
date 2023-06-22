@@ -118,7 +118,7 @@ Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./
 
 --- 
 
-- [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with:
+- [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with appropriate variables:
 
 <details>
 <summary><strong>REST API:</strong></summary>
@@ -138,9 +138,14 @@ In case of GraphQL the query variable `{"limit": 3}`.
 
 - [ ] Ensure that the search input is focused when the page when you enter the page.
 
-- [ ] Implement pagination functionality. The `Navigation` component should have two optional props: `onNext` and `onPrevious`. 
-  - [ ] Clicking on "Next" should increase the limit by 3 and skip by 3. 
-  - [ ] Clicking on "Previous" should go back by 3 decrease limit by 3 and skip by 3.
+---
+
+- [ ] Implement pagination functionality. The `Navigation` component should have two optional props: `onNext` and `onPrevious`. Add appropriate handles to alow user to: 
+
+By clicking "Next" view next 3 moods. This should increase the limit by 3 and skip by 3. 
+By clicking "Previous" view previous 3 moods. This should decrease limit by 3 and skip by 3.
+
+---
 
 - [ ] Add search functionality. When a user types something into the search input, we should make an API call to `http://localhost:4000/api/moods?limit=3&search={search}` and display the results accordingly.
 
