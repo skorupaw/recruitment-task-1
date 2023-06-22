@@ -1,5 +1,10 @@
 <h1 align="center">Mood Selector 🎭🎉</h1>
 
+To start dev server run:
+```cmd
+npm run dev
+```
+
 - [ ] Render a list of "mood cards" in the `Moods` component. You can fetch them from the REST API located at `http://localhost:4000/api/moods`. To accomplish this, utilize the `Card` component from the `ui` folder.
 
 To start the REST server run:
@@ -25,8 +30,9 @@ Example REST response:
 }
 ```
 
-To start GraphQL server run:
+Types for the REST response can be found in (./src/types/rest/index.ts)
 
+To start GraphQL server run:
 ```cmd
 npm run serve:graphql
 ```
@@ -54,7 +60,15 @@ Example GraphQL response:
 }
 ```
 
-- [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with the query parameter `limit=3`.
+To run App with GraphQL mode go to (./src/main.tsx) and change `<Root type="graphql">`
+
+Types for the GraphQL response can be found in (./src/types/graphql/index.ts)
+
+- [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with:
+
+  In case of REST the query parameter `limit=3`.
+  
+  In case of GraphQL the query variable `{"limit": 3}`.
 
 - [ ] Ensure that the search input is focused when the page when you enter the page.
 
