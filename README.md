@@ -16,7 +16,7 @@ npm run dev
 ```
 
 <details>
-<summary>With REST:</summary>
+<summary><strong>With REST:</strong></summary>
 To start the REST server run:
 
 ```cmd
@@ -25,7 +25,7 @@ npm run serve:rest
 </details>
 
 <details>
-<summary>With GraphQL:</summary>
+<summary><strong>With GraphQL:</strong></summary>
 To start the GraphQL server run:
 
 ```cmd
@@ -41,7 +41,9 @@ Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.
 
 
 <details>
-<summary>REST API:</summary>
+<summary><strong>REST API:</strong></summary>
+
+
 Send GET request to http://localhost:4000/api/moods
 
 Types for the REST response can be found in [./src/types/rest/index.ts](./src/types/rest/index.ts)
@@ -68,7 +70,6 @@ Example REST response:
 
 <details>
 <summary>GraphQL API:</summary>
-</details>
 To run `<App />` in GraphQL mode go to [./src/main.tsx](./src/main.tsx) and change `Root` to `<Root type="graphql">`
 
 Send query request to http://localhost:4000/graphql
@@ -97,6 +98,7 @@ Example GraphQL response:
   }
 }
 ```
+</details>
 
 - [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with:
 
