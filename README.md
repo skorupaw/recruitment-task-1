@@ -1,16 +1,51 @@
-<h1 align="center">Mood Selector 🎭🎉</h1>
+## Prelude
 
-To start dev server run:
+The following task is a great opportunity to show us your experience, style, and the way you work and impress us with your skills and knowledge.
+
+## General guidelines:
+
+- You can take a look around the project and change every part of it, but all the tasks can be achieved modifying the `App.tsx` and files in `/components` folder 
+
+## Description
+
+## Starting 
+
+To start dev server run with frontend application run:
 ```cmd
 npm run dev
 ```
 
-- [ ] Render a list of "mood cards" in the `Moods` component. You can fetch them from the REST API located at `http://localhost:4000/api/moods`. To accomplish this, utilize the `Card` component from the `ui` folder.
-
+<details>
+<summary>With REST:</summary>
 To start the REST server run:
+
 ```cmd
 npm run serve:rest
 ```
+</details>
+
+<details>
+<summary>With GraphQL:</summary>
+To start the GraphQL server run:
+
+```cmd
+npm run serve:graphql
+```
+</details>
+
+
+## Checklist
+### Tasks 1
+
+Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./src/ui/Card.tsx) component from the `ui` folder and provided API
+
+
+<details>
+<summary>REST API:</summary>
+Send GET request to http://localhost:4000/api/moods
+
+Types for the REST response can be found in [./src/types/rest/index.ts](./src/types/rest/index.ts)
+
 
 Example REST response:
 ```json
@@ -29,13 +64,16 @@ Example REST response:
   }
 }
 ```
+</details>
 
-Types for the REST response can be found in (./src/types/rest/index.ts)
+<details>
+<summary>GraphQL API:</summary>
+</details>
+To run `<App />` in GraphQL mode go to [./src/main.tsx](./src/main.tsx) and change `Root` to `<Root type="graphql">`
 
-To start GraphQL server run:
-```cmd
-npm run serve:graphql
-```
+Send query request to http://localhost:4000/graphql
+
+Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./src/types/graphql/index.ts)
 
 Example GraphQL response:
 ```json
@@ -59,10 +97,6 @@ Example GraphQL response:
   }
 }
 ```
-
-To run App with GraphQL mode go to (./src/main.tsx) and change `<Root type="graphql">`
-
-Types for the GraphQL response can be found in (./src/types/graphql/index.ts)
 
 - [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with:
 
