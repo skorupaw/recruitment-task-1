@@ -5,7 +5,7 @@ The following task is a great opportunity to show us your experience, style, and
 ## General advice:
 
 - You can take a look around the project and change every part of it, but all the tasks can be achieved modifying only the `App.tsx` and files in `/components` folder.
-- We advice you too do the tasks in order, most of them built upon each other.
+- We advice you to do the tasks in order, most of them built upon each other.
 
 ## Description
 
@@ -20,7 +20,7 @@ npm run dev
 <details>
 <summary><strong>With REST:</strong></summary>
 <p></p>
-<p>To start the REST server run:</p>
+<p>Start the REST server with command:</p>
 
 
 ```cmd
@@ -31,7 +31,7 @@ npm run serve:rest
 <details>
 <summary><strong>With GraphQL:</strong></summary>
 <p></p>
-<p>To start the GraphQL server run:</p>
+<p>Start the GraphQL server with command:</p>
 
 
 ```cmd
@@ -165,7 +165,7 @@ Extend query variables by adding `{"skip": 3}`.
 
 ---
 
-- [ ] Add search functionality. Without impacting the previous functionality. When a user types something into the search input, we should make an API call and display the results accordingly.
+- [ ] Add search functionality. Without impacting the previous functionality. When user types something into the search input, we should make an API call and display the results accordingly.
 
 <details>
 <summary><strong>REST API:</strong></summary>
@@ -183,7 +183,7 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 
 ---
 
-- [ ] Add the ability to select "mood cards" using the `isSelected` and `onSelect` props of the `Card` component. The selection state should remain unaffected by searching and navigation.
+- [ ] Add the ability to select "mood cards" using the `isSelected` and `onSelect` props of the [`Card`](./src/ui/Card.tsx) component. The selection state should remain unaffected by searching and navigation.
 
 ---
 
