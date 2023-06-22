@@ -4,7 +4,7 @@ The following task is a great opportunity to show us your experience, style, and
 
 ## General advice:
 
-- You can take a look around the project and change every part of it, but all the tasks can be achieved modifying only the `App.tsx` and files in `/components` folder.
+- You can take a look around the project and change every part of it, but all the tasks can be achieved modifying only the [`App.tsx`](./src/App.tsx) and files in [`/components`](./src/components/) folder.
 - We advice you to do the tasks in order, most of them built upon each other.
 
 ## Description
