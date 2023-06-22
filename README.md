@@ -19,6 +19,8 @@ npm run dev
 <details>
 <summary><strong>With REST:</strong></summary>
 <p>To start the REST server run:</p>
+
+
 ```cmd
 npm run serve:rest
 ```
@@ -27,6 +29,8 @@ npm run serve:rest
 <details>
 <summary><strong>With GraphQL:</strong></summary>
 <p>To start the GraphQL server run:</p>
+
+
 ```cmd
 npm run serve:graphql
 ```
