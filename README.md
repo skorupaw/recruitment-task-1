@@ -2,9 +2,10 @@
 
 The following task is a great opportunity to show us your experience, style, and the way you work and impress us with your skills and knowledge.
 
-## General guidelines:
+## General advice:
 
 - You can take a look around the project and change every part of it, but all the tasks can be achieved modifying only the `App.tsx` and files in `/components` folder.
+- We advice you too do the tasks in order, most of them built upon each other.
 
 ## Description
 
@@ -49,12 +50,13 @@ npm run serve:graphql
 <summary><strong>REST API:</strong></summary>
 <p></p>
 
+**URL:**
+_GET_ request should be send to http://localhost:4000/api/moods
 
-GET request should be send to http://localhost:4000/api/moods
-
+**Types:**
 Types for the REST response can be found in [./src/types/rest/index.ts](./src/types/rest/index.ts)
 
-<p>Example REST response:</p>
+**Example response**
 
 
 ```json
@@ -79,11 +81,12 @@ Types for the REST response can be found in [./src/types/rest/index.ts](./src/ty
 <summary><strong>GraphQL API:</strong></summary>
 <p></p>
 
+> To run `<App />` in GraphQL mode go to [./src/main.tsx](./src/main.tsx) and change `Root` to `<Root type="graphql">`
 
-To run `<App />` in GraphQL mode go to [./src/main.tsx](./src/main.tsx) and change `Root` to `<Root type="graphql">`
-
+**URL:**
 Send query request to http://localhost:4000/graphql
 
+**Types:**
 Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./src/types/graphql/index.ts)
 
 <p>Example GraphQL response:</p>
@@ -112,11 +115,25 @@ Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./
 ```
 </details>
 
+### Task 2
+
 - [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with:
 
-  In case of REST the query parameter `limit=3`.
-  
-  In case of GraphQL the query variable `{"limit": 3}`.
+<details>
+<summary><strong>REST API:</strong></summary>
+<p></p>
+
+In case of REST the add query parameter to url `limit=3`.
+</details>
+
+<details>
+<summary><strong>GraphQL API:</strong></summary>
+<p></p>
+
+In case of GraphQL the query variable `{"limit": 3}`.
+</details>
+
+### Task 3
 
 - [ ] Ensure that the search input is focused when the page when you enter the page.
 
