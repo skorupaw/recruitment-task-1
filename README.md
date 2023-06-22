@@ -18,6 +18,7 @@ npm run dev
 
 <details>
 <summary><strong>With REST:</strong></summary>
+<p></p>
 <p>To start the REST server run:</p>
 
 
@@ -28,6 +29,7 @@ npm run serve:rest
 
 <details>
 <summary><strong>With GraphQL:</strong></summary>
+<p></p>
 <p>To start the GraphQL server run:</p>
 
 
