@@ -6,7 +6,7 @@ import http from "http";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { gql } from "apollo-server-express";
-import moodsData from "../data/data.json" assert { type: "json" };
+import moodsData from "../data/data.json";
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
@@ -61,16 +61,16 @@ const resolvers = {
         search?: string;
       };
 
-    const data = search
-      ? moodsData.filter((mood) =>
-          mood.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-        )
-      : moodsData;
+      const data = search
+        ? moodsData.filter((mood) =>
+            mood.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+          )
+        : moodsData;
 
-    const moods =
-      limit !== undefined && limit >= 0
-        ? data.slice(skip, limit)
-        : data.slice(skip);
+      const moods =
+        limit !== undefined && limit >= 0
+          ? data.slice(skip, limit)
+          : data.slice(skip);
 
       return {
         moods,
@@ -86,36 +86,41 @@ const resolvers = {
   },
 };
 
-// Required logic for integrating with Express
-const app = express();
+(async function () {
+  // Required logic for integrating with Express
+  const app = express();
 
-// Our httpServer handles incoming requests to our Express app.
-// Below, we tell Apollo Server to "drain" this httpServer,
-// enabling our servers to shut down gracefully.
-const httpServer = http.createServer(app);
+  // Our httpServer handles incoming requests to our Express app.
+  // Below, we tell Apollo Server to "drain" this httpServer,
+  // enabling our servers to shut down gracefully.
+  const httpServer = http.createServer(app);
 
-// Same ApolloServer initialization as before, plus the drain plugin
-// for our httpServer.
-const server = new ApolloServer<Record<string, never>>({
-  typeDefs,
-  resolvers,
-  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  // Same ApolloServer initialization as before, plus the drain plugin
+  // for our httpServer.
+  const server = new ApolloServer<Record<string, never>>({
+    typeDefs,
+    resolvers,
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  });
+
+  // Ensure we wait for our server to start
+  await server.start();
+
+  // Set up our Express middleware to handle CORS, body parsing,
+  // and our expressMiddleware function.
+  app.use(
+    "/",
+    cors<cors.CorsRequest>(),
+    bodyParser.json(),
+    expressMiddleware(server)
+  );
+
+  // Modified server startup
+  await new Promise<void>((resolve) =>
+    httpServer.listen({ port: 4000 }, resolve)
+  );
+  console.log(`🚀 Server ready at http://localhost:4000/`);
+})().catch((error) => {
+  console.log(error);
+  process.exit(1);
 });
-
-// Ensure we wait for our server to start
-await server.start();
-
-// Set up our Express middleware to handle CORS, body parsing,
-// and our expressMiddleware function.
-app.use(
-  "/",
-  cors<cors.CorsRequest>(),
-  bodyParser.json(),
-  expressMiddleware(server)
-);
-
-// Modified server startup
-await new Promise<void>((resolve) =>
-  httpServer.listen({ port: 4000 }, resolve)
-);
-console.log(`🚀 Server ready at http://localhost:4000/`);

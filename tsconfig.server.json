@@ -1,14 +1,20 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "outDir": "dist",
-        "lib": ["es2020"],
-        "target": "es2020",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "types": ["node"],
-        "resolveJsonModule": true,
-    },
-    "include": ["./server/**/*.ts"],
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Server",
+  "compilerOptions": {
+    "lib": ["es2021"],
+    "module": "Node16",
+    "target": "es2021",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["./server/**/*.ts"]
 }

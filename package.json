@@ -2,12 +2,11 @@
   "name": "frontend-task-1",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve:graphql": "tsc -p ./tsconfig.server.json && node ./dist/server-graphql/index.js",
-    "serve:rest": "tsc -p ./tsconfig.server.json && node ./dist/server-rest/index.js",
+    "serve:graphql": "ts-node --project ./tsconfig.server.json ./server/server-graphql/index.ts",
+    "serve:rest": "ts-node --project ./tsconfig.server.json ./server/server-rest/index.ts",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "vitest",
     "preview": "vite preview"
@@ -53,7 +52,7 @@
     "vitest": "^0.32.2"
   },
   "engines": {
-    "node": "^16.16",
-    "npm": "^8.4"
+    "node": ">= 16.16",
+    "npm": ">= 8.4"
   }
 }

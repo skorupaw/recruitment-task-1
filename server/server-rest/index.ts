@@ -1,17 +1,13 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import moodsData from "../data/data.json" assert { type: "json" };
+import moodsData from "../data/data.json";
 
 const app = express();
 
 app.use("/", cors<cors.CorsRequest>(), bodyParser.json());
 
-// for .body
 type RequestBody<T> = Request<Record<string, never>, Record<string, never>, T>;
-// for .params
-type RequestParams<T> = Request<T>;
-// for .query
 type RequestQuery<T> = Request<
   Record<string, never>,
   Record<string, never>,
@@ -25,6 +21,10 @@ type Mood = {
   title: string;
   description: string;
 };
+
+app.get("/", (req, res) => {
+  res.redirect("/api/moods");
+});
 
 app.get(
   "/api/moods",
