@@ -11,7 +11,7 @@ The following task is a great opportunity to show us your experience, style, and
 ## Starting 
 Before you start coding:
 
-To start dev server run with frontend application run:
+Start dev server run with frontend application run:
 ```cmd
 npm run dev
 ```
@@ -42,18 +42,19 @@ npm run serve:graphql
 ## Checklist
 ### Tasks 1
 
-Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./src/ui/Card.tsx) component from the `ui` folder and provided API
+- [ ] Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./src/ui/Card.tsx) component from the `ui` folder and provided API
 
 
 <details>
 <summary><strong>REST API:</strong></summary>
-
-
+<p></p>
 GET request should be send to http://localhost:4000/api/moods
 
 Types for the REST response can be found in [./src/types/rest/index.ts](./src/types/rest/index.ts)
 
-Example REST response:
+<p>Example REST response:</p>
+
+
 ```json
 {
   "moods": [
@@ -74,13 +75,16 @@ Example REST response:
 
 <details>
 <summary><strong>GraphQL API:</strong></summary>
+<p></p>
 To run `<App />` in GraphQL mode go to [./src/main.tsx](./src/main.tsx) and change `Root` to `<Root type="graphql">`
 
 Send query request to http://localhost:4000/graphql
 
 Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./src/types/graphql/index.ts)
 
-Example GraphQL response:
+<p>Example GraphQL response:</p>
+
+
 ```json
 {
   "data": {
