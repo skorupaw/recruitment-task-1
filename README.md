@@ -2,6 +2,11 @@
 
 - [ ] Render a list of "mood cards" in the `Moods` component. You can fetch them from the REST API located at `http://localhost:4000/api/moods`. To accomplish this, utilize the `Card` component from the `ui` folder.
 
+To start the REST server run:
+```cmd
+npm run serve:rest
+```
+
 Example REST response:
 ```json
 {
@@ -11,23 +16,40 @@ Example REST response:
       "emoji": "😊",
       "title": "Happy",
       "description": "Feeling joyful, content, or delighted."
-    },
-    {
-      "id": "4d5e6f",
-      "emoji": "🎉",
-      "title": "Excited",
-      "description": "Eager, thrilled, or enthusiastic about something."
-    },
-    {
-      "id": "7g8h9i",
-      "emoji": "😞",
-      "title": "Sad",
-      "description": "Feeling down, dejected, or experiencing sorrow."
     }
   ],
   "pagination": {
-    "limit": "3",
+    "limit": "1",
     "count": 40
+  }
+}
+```
+
+To start GraphQL server run:
+
+```cmd
+npm run serve:graphql
+```
+
+Example GraphQL response:
+```json
+{
+  "data": {
+    "getMoods": {
+      "moods": [
+        {
+          "description": "Feeling joyful, content, or delighted.",
+          "id": "1a2b3c",
+          "emoji": "😊",
+          "title": "Happy"
+        }
+      ],
+      "pagination": {
+        "count": 40,
+        "limit": 1,
+        "skip": 0
+      }
+    }
   }
 }
 ```
