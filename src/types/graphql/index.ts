@@ -6,19 +6,16 @@ export type Mood = {
 }
 
 export type PaginationData = {
-  skip: number
-  limit: number
-  count: number
-}
-
-export type GetMoods = {
-  moods: Mood[]
-  pagination: PaginationData
-}
-
+  skip: number;
+  limit: number;
+  count: number;
+};
 export type GetMoodsData = {
-  data: GetMoods
-}
+  getMoods: {
+    moods: Mood[];
+    pagination: PaginationData;
+  };
+};
 
 export type GetMoodsVariables = {
   skip?: number,

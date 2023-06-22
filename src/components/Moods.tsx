@@ -2,7 +2,7 @@
 export type MoodsProps = {};
 
 export function Moods({}: MoodsProps) {
-  return null;
+  return <></>;
 }
 
 export default Moods;
