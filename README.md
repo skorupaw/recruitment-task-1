@@ -41,7 +41,6 @@ npm run serve:graphql
 
 
 ## Checklist
-### Tasks 1
 
 - [ ] Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./src/ui/Card.tsx) component from the `ui` folder and provided API
 
@@ -84,9 +83,11 @@ Types for the REST response can be found in [./src/types/rest/index.ts](./src/ty
 > To run `<App />` in GraphQL mode go to [./src/main.tsx](./src/main.tsx) and change `Root` to `<Root type="graphql">`
 
 **URL:**
+
 Send query request to http://localhost:4000/graphql
 
 **Types:**
+
 Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./src/types/graphql/index.ts)
 
 <p>Example GraphQL response:</p>
@@ -115,7 +116,7 @@ Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./
 ```
 </details>
 
-### Task 2
+--- 
 
 - [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with:
 
@@ -133,7 +134,7 @@ In case of REST the add query parameter to url `limit=3`.
 In case of GraphQL the query variable `{"limit": 3}`.
 </details>
 
-### Task 3
+---
 
 - [ ] Ensure that the search input is focused when the page when you enter the page.
 
