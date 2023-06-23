@@ -145,6 +145,10 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 
 ---
 
+- [ ] Limit the number of possible mood selections to 3. 
+
+---
+
 - [ ] Implement the functionality to send selected "moods" to our API. Utilize the `onSend` prop from the `Footer` component in the `App` component.
 
 <details>
