@@ -155,7 +155,7 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 <summary><strong>REST API:</strong></summary>
 <p></p>
 
-Send POST request to http://localhost:4000/api/moods/current with `{body: { moodIds: [] }}` of selected moods in the request body. 
+Send POST request to http://localhost:4000/api/moods/current with `{body: { moodIds: [<ids>] }}`. 
 </details>
 
 
@@ -163,5 +163,5 @@ Send POST request to http://localhost:4000/api/moods/current with `{body: { mood
 <summary><strong>GraphQL API:</strong></summary>
 <p></p>
 
-Send mutation with selected moods ids `saveCurrentMoods(moodsIds: [ID!]!)` to http://localhost:4000/graphql 
+Send mutation with selected moods ids `saveCurrentMoods(moodsIds: [ID!]!)`.
 </details>
