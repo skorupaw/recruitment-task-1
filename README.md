@@ -15,7 +15,7 @@ Assignment should work with any modern version of node but we recommend:
 ## Description
 The application should display list of moods provided by API and allow user to search, paginate and submit their current mood. Current mood can consist of max three emotions ex. "Happy", "Excited", "Proud".
 
-<p align="center"><img src="./.github/screen-1.png" width="500px" /></p>
+<p align="center"><img src="./.github/screen-1.png" width="750px" /></p>
 
 ## General advice:
 
