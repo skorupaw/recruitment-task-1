@@ -32,6 +32,9 @@ Start the dev server with frontend application:
 npm run dev
 ```
 
+After that server should be running at: http://localhost:5173/
+
+
 <details>
 <summary><strong>With REST:</strong></summary>
 <p></p>
