@@ -141,7 +141,7 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 
 ---
 
-- [ ] Display [`NoResults`](./src/ui/NoResults.tsx) when no results are found for a given query
+- [ ] Display [`NoResults`](./src/ui/NoResults.tsx) component from [`ui`](./src/ui) when no results are found for a given query
 
 ---
 
