@@ -22,3 +22,13 @@ export type GetMoodsVariables = {
   limit?: number,
   search?: string
 }
+
+export type SaveCurrentMoodData = {
+  saveCurrentMood: {
+    moods: Mood[];
+  };
+};
+
+export type SaveCurrentMoodVariables = {
+  moodIds: string[];
+};

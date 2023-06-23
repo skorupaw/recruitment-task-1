@@ -15,3 +15,7 @@ export type GetMoodsResponse = {
   moods: Mood[];
   pagination: Pagination;
 };
+
+export type SaveCurrentMoodBody = {
+  moodIds: string[];
+};
