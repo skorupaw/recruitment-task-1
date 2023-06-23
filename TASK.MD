@@ -1,6 +1,6 @@
 ## Checklist
 
-- [ ] Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./src/ui/Card.tsx) component from the [`ui`](./src/ui/) folder and provided API
+- [ ] Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./src/ui/Card.tsx) component from the [`ui`](./src/ui/) folder and fetch the data from provided API
 
 
 <details>
@@ -151,7 +151,7 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 <summary><strong>REST API:</strong></summary>
 <p></p>
 
-Request variables should be set to `?limit=3&search="<search_query>"`
+Send POST request to http://localhost:4000/api/moods/current with `{body: { moodIds: [] }}` of selected moods in the request body. 
 </details>
 
 
@@ -159,5 +159,5 @@ Request variables should be set to `?limit=3&search="<search_query>"`
 <summary><strong>GraphQL API:</strong></summary>
 <p></p>
 
-Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
+Send mutation with selected moods ids `saveCurrentMoods(moodsIds: [ID!]!)` to http://localhost:4000/graphql 
 </details>
