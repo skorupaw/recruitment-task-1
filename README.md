@@ -2,7 +2,7 @@
 
 The following task is a great opportunity to show us your experience, style, and the way you work and impress us with your skills and knowledge.
 
-Task should work with any modern version of node but we recomend: 
+Assignment should work with any modern version of node but we recommend: 
 
 
 ```json
@@ -13,6 +13,7 @@ Task should work with any modern version of node but we recomend:
 ```
 
 ## Description
+The application should display list of moods provided by API and allow user to search, paginate and submit their current mood. Current mood can consist of max three emotions ex. "Happy", "Excited", "Proud".
 
 <p align="center"><img src="./.github/screen-1.png" width="500px" /></p>
 
