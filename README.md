@@ -27,7 +27,7 @@ The application should display list of moods provided by API and allow user to s
 ## Starting 
 Before you start coding:
 
-Start the dev server with frontend application run:
+Start the dev server with frontend application:
 ```cmd
 npm run dev
 ```
