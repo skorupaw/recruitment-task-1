@@ -53,10 +53,16 @@ app.get(
   }
 );
 
-app.post("/api/moods/current", (req: RequestBody<Mood[]>, res: Response) => {
-  const moods = req.body;
-  res.status(201).json(moods);
-});
+app.post(
+  "/api/moods/current",
+  (req: RequestBody<{ moodIds: string[] }>, res: Response) => {
+    const { moodIds } = req.body;
+    const moods = moodIds
+      .map((id) => moodsData.find((mood) => mood.id === id))
+      .filter(Boolean);
+    res.status(201).send(moods);
+  }
+);
 
 app.listen(4000, () => {
   console.log(`🚀 Server ready at http://localhost:4000/`);

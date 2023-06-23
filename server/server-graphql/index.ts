@@ -20,14 +20,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    saveCurrentMood(moods: [MoodInput!]!): [Mood!]!
-  }
-
-  input MoodInput {
-    id: ID!
-    emoji: String!
-    title: String!
-    description: String!
+    saveCurrentMood(moodIds: [ID!]!): [Mood!]!
   }
 
   type Mood {
@@ -43,13 +36,6 @@ const typeDefs = gql`
     count: Int!
   }
 `;
-
-type Mood = {
-  id: string;
-  emoji: string;
-  title: string;
-  description: string;
-};
 
 // Provide resolver functions for your schema fields
 const resolvers = {
@@ -80,8 +66,10 @@ const resolvers = {
   },
   Mutation: {
     saveCurrentMood: (parent, args) => {
-      const { moods } = args as { moods: Mood[] };
-      return moods;
+      const { moodIds } = args as { moodIds: string[] };
+      return moodIds
+        .map((id) => moodsData.find((mood) => mood.id === id))
+        .filter(Boolean);
     },
   },
 };
