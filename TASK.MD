@@ -149,7 +149,7 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 
 ---
 
-- [ ] Implement the functionality to send selected "moods" to our API. Utilize the `onSend` prop from the `Footer` component in the `App` component.
+- [ ] Implement the functionality to send selected "moods" to our API. Utilize the `onSend` prop from the [`Footer`](./src/ui/Footer.tsx) component in the [`App`](./src/App.tsx) component.
 
 <details>
 <summary><strong>REST API:</strong></summary>
