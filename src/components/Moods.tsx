@@ -1,7 +1,4 @@
-/* eslint-disable */
-export type MoodsProps = {};
-
-export function Moods({}: MoodsProps) {
+export function Moods() {
   return <></>;
 }
 
