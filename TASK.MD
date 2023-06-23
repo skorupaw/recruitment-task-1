@@ -45,7 +45,7 @@ Types for the REST response can be found in [./src/types/rest/index.ts](./src/ty
 
 **Request:**
 
-Send query request to http://localhost:4000/graphql
+Apollo client is already setup, so you can jump straight in to writing `useQuery` hook.
 
 **Types:**
 
