@@ -54,4 +54,4 @@ npm run serve:graphql
 ```
 </details>
 
-<p align="center"><a href="./TASK.MD">Start assignment</a></p>
+<p align="center"><a href="./TASK.MD"><strong>Start assignment</strong></a></p>
