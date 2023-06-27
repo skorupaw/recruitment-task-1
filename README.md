@@ -24,8 +24,7 @@ The application should display list of moods provided by API and allow user to s
   - Creating and modifying files in [`/components`](./src/components/) folder.
 - We advise you to do the tasks in order, most of them built upon each other.
 
-## Starting 
-Before you start coding:
+## Before you start 
 
 Start the dev server with frontend application:
 ```cmd

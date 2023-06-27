@@ -77,6 +77,18 @@ Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./
 ```
 </details>
 
+---
+
+- [ ] Ensure that the search input (which can be found in [`App`](./src/App.tsx)), is focused when the page is reloaded.
+
+---
+
+- [ ] Add the ability to select "mood cards" using the `isSelected` and `onSelect` props of the [`Card`](./src/ui/Card.tsx) component.
+
+---
+
+- [ ] Limit the number of possible mood selections to 3. 
+
 --- 
 
 - [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with appropriate variables:
@@ -97,15 +109,14 @@ Add query variable `{"limit": 3}`.
 
 ---
 
-- [ ] Ensure that the search input is focused when the page when you enter the page.
-
----
-
 - [ ] Implement pagination functionality. The [`Navigation`](./src/ui/Navigation.tsx) component should have two optional props: `onNext` and `onPrevious`. Add appropriate handles to alow user to: 
 
   - [ ] By clicking "Next" display 3 next moods from API (increase the `limit` by 3 and `skip` by 3)
 
   - [ ] By clicking "Previous" display 3 previous moods from API (decrease `limit` by 3 and `skip` by 3)
+
+> The selection state should remain unaffected by searching and navigation.
+
 
 <details>
 <summary><strong>REST API:</strong></summary>
@@ -142,14 +153,6 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 ---
 
 - [ ] Display [`NoResults`](./src/ui/NoResults.tsx) component from [`ui`](./src/ui) when no results are found for a given query
-
----
-
-- [ ] Add the ability to select "mood cards" using the `isSelected` and `onSelect` props of the [`Card`](./src/ui/Card.tsx) component. The selection state should remain unaffected by searching and navigation.
-
----
-
-- [ ] Limit the number of possible mood selections to 3. 
 
 ---
 
