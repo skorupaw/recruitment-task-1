@@ -79,7 +79,7 @@ Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./
 
 ---
 
-- [ ] Ensure that the search input (which can be found in [`App`](./src/App.tsx)), is focused when the page is reloaded.
+- [ ] Ensure that the search input (which can be found in [`App`](./src/App.tsx) component), is focused when the page is reloaded.
 
 ---
 
@@ -115,7 +115,7 @@ Add query variable `{"limit": 3}`.
 
   - [ ] By clicking "Previous" display 3 previous moods from API (decrease `limit` by 3 and `skip` by 3)
 
-> The selection state should remain unaffected by searching and navigation.
+> The selection state should remain unaffected by navigation.
 
 
 <details>
@@ -135,6 +135,8 @@ Extend query variables by adding `{"skip": 3}`.
 ---
 
 - [ ] Add search functionality. Without impacting the previous functionality. When user types something into the search input, we should make an API call and display the results accordingly.
+
+> The selection state should remain unaffected by search.
 
 <details>
 <summary><strong>REST API:</strong></summary>
