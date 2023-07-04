@@ -288,3 +288,11 @@ Send _POST_ request to http://localhost:4000/api/moods/current with `{body: { mo
 
 Send mutation with selected moods ids `saveCurrentMoods(moodsIds: [ID!]!)`.
 </details>
+
+---
+
+- [ ] Display number of all moods. This can be achieved by passing the `count` data from the request to the [`Navigation`](./src/ui/Navigation.tsx) component as a prop.
+
+---
+
+- [ ] Disable navigation buttons when user reach the first and the last page, this can be achieved using `isPreviousDisabled` and `isNextDisabled` from [`Navigation`](./src/ui/Navigation.tsx) component.
