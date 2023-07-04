@@ -135,8 +135,19 @@ Add query variable `{"limit": 3}`.
 
   - [ ] By clicking "Previous" display 3 previous moods from API (decrease `limit` by 3 and `skip` by 3)
 
-> The selection state should remain unaffected by navigation.
+Example: 
 
+
+**For page 1:**
+limit = 3 and skip = 0
+
+
+**For page 2:**
+limit = 6 and skip = 3
+
+and so on.
+
+> The selection state should remain unaffected by navigation.
 
 <details>
 <summary><strong>REST API:</strong></summary>
@@ -156,17 +167,6 @@ Extend query variables by adding `{"skip": 3}`.
 
 - [ ] Add search functionality. Without impacting the previous functionality. When user types something into the search input, we should make an API call and display the results accordingly.
 
-Example: 
-
-
-**For page 1:**
-limit = 3 and skip = 0
-
-
-**For page 2:**
-limit = 6 and skip = 3
-
-and so on.
 
 <details>
 <summary><strong>REST API:</strong></summary>
@@ -204,6 +204,11 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 <details>
 <summary><strong>REST API:</strong></summary>
 <p></p>
+
+**Request:**
+
+
+Send _GET_ request to http://localhost:4000/moods/:moodId
 
 
 **Types:**
