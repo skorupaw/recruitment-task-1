@@ -188,14 +188,6 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 
 ---
 
-- [ ] Add the ability to select "mood cards" using the `isSelected` and `onSelect` props of the [`Card`](./src/ui/Card.tsx) component. The selection state should remain unaffected by searching and navigation.
-
----
-
-- [ ] Limit the number of possible mood selections to 3. 
-
----
-
 ### Bonus
 ---
 
