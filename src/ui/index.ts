@@ -5,3 +5,5 @@ export * from "./Navigation";
 export * from "./Main";
 export * from "./NoResults";
 export * from "./Footer";
+export * from "./Details";
+export * from "./CTA";

@@ -28,7 +28,7 @@ export function Navigation({
       <div className="flex gap-2 justify-center">
         {!isPreviousDisabled && (
           <button
-            className="text-lg hover:bg-neutral-100 p-3 rounded-full"
+            className="text-lg hover:bg-neutral-100 hover:border-neutral-100 p-3 rounded-full"
             onClick={onPrevious}
           >
             <ArrowLongLeftIcon className="w-5 h-5" />
@@ -36,7 +36,7 @@ export function Navigation({
         )}
         {!isNextDisabled && (
           <button
-            className="text-lg hover:bg-neutral-100 p-3 rounded-full"
+            className="text-lg hover:bg-neutral-100 hover:border-neutral-100 p-3 rounded-full"
             onClick={onNext}
           >
             <ArrowLongRightIcon className="w-5 h-5" />

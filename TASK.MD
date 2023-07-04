@@ -1,6 +1,9 @@
 ## Checklist
 
-- [ ] Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./src/ui/Card.tsx) component from the [`ui`](./src/ui/) folder and fetch the data from provided API
+### Base
+---
+
+- [ ] Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./src/ui/Card.tsx) component from the [`/ui`](./src/ui/) folder and fetch the data from provided API
 
 
 <details>
@@ -14,25 +17,35 @@ _GET_ request should be send to http://localhost:4000/api/moods
 
 **Types:**
 
-Types for the REST response can be found in [./src/types/rest/index.ts](./src/types/rest/index.ts)
 
-**Example response**
+Types for the REST response can be found in [./src/types/rest.ts](./src/types/index.ts)
+
+**Example response:**
 
 
 ```json
 {
-  "moods": [
-    {
-      "id": "1a2b3c",
-      "emoji": "😊",
-      "title": "Happy",
-      "description": "Feeling joyful, content, or delighted."
+    "moods": [
+        {
+            "id": 1,
+            "title": "Happiness",
+            "emoji": "😄",
+            "description": "A state of being happy or experiencing pleasure.",
+            "word": {
+                "partOfSpeech": "Noun",
+                "definitions": [
+                    "The state of being happy.",
+                    "A feeling of pleasure or contentment."
+                ],
+                "pronunciation": "/ˈhæp.i.nəs/"
+            }
+        }
+    ],
+    "pagination": {
+        "skip": 0,
+        "limit": "1",
+        "count": 40
     }
-  ],
-  "pagination": {
-    "limit": "1",
-    "count": 40
-  }
 }
 ```
 </details>
@@ -40,8 +53,7 @@ Types for the REST response can be found in [./src/types/rest/index.ts](./src/ty
 <details>
 <summary><strong>GraphQL API:</strong></summary>
 <p></p>
-
-> To run `<App />` in GraphQL mode go to [./src/main.tsx](./src/main.tsx) and change `Root` to `<Root type="graphql">`
+> You can access GraphQL sandbox navigating to: http://localhost:4000
 
 **Request:**
 
@@ -49,27 +61,35 @@ Apollo client is already setup, so you can jump straight in to writing `useQuery
 
 **Types:**
 
-Types for the GraphQL response can be found in [./src/types/graphql/index.ts](./src/types/graphql/index.ts)
+Types for the GraphQL response can be found in [./src/types/graphql.ts](./src/types/graphql.ts)
 
-**Example response**
+**Example response:**
 
 
 ```json
 {
   "data": {
-    "getMoods": {
+    "moods": {
       "moods": [
         {
-          "description": "Feeling joyful, content, or delighted.",
-          "id": "1a2b3c",
-          "emoji": "😊",
-          "title": "Happy"
+          "id": "1",
+          "emoji": "😄",
+          "description": "A state of being happy or experiencing pleasure.",
+          "title": "Happiness",
+          "word": {
+            "definitions": [
+              "The state of being happy.",
+              "A feeling of pleasure or contentment."
+            ],
+            "partOfSpeech": "Noun",
+            "pronunciation": "/ˈhæp.i.nəs/"
+          }
         }
       ],
       "pagination": {
-        "count": 40,
+        "skip": 0,
         "limit": 1,
-        "skip": 0
+        "count": 40
       }
     }
   }
@@ -125,6 +145,18 @@ Extend query variables by adding `{"skip": 3}`.
 
 - [ ] Add search functionality. Without impacting the previous functionality. When user types something into the search input, we should make an API call and display the results accordingly.
 
+Example: 
+
+
+**For page 1:**
+limit = 3 and skip = 0
+
+
+**For page 2:**
+limit = 6 and skip = 3
+
+and so on.
+
 <details>
 <summary><strong>REST API:</strong></summary>
 <p></p>
@@ -153,7 +185,86 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 
 ---
 
-- [ ] Implement the functionality to send selected "moods" to our API. Utilize the `onSend` prop from the [`Footer`](./src/ui/Footer.tsx) component in the [`App`](./src/App.tsx) component.
+### Bonus
+---
+
+- [ ] Display additional information about given mood. This can be achieved by editing existing [`Mood`](./src/components/Mood.tsx) component. Use `moodId` provided from query params to fetch the data from appropriate endpoint, then to display retrieved information utilize [`Details`](./src/ui/Details.tsx) component from [`/ui`](./src/ui) folder. **Please make sure that user can click on the multiple mood cards while data is loading but only one state updated will be performed**
+
+<details>
+<summary><strong>REST API:</strong></summary>
+<p></p>
+
+
+**Types:**
+
+
+Types for the REST response can be found in [./src/types/rest.ts](./src/types/rest.ts)
+
+
+**Example response:**
+
+```json
+{
+    "id": 1,
+    "title": "Happiness",
+    "emoji": "😄",
+    "description": "A state of being happy or experiencing pleasure.",
+    "word": {
+        "partOfSpeech": "Noun",
+        "definitions": [
+            "The state of being happy.",
+            "A feeling of pleasure or contentment."
+        ],
+        "pronunciation": "/ˈhæp.i.nəs/"
+    }
+}
+```
+</details>
+
+
+<details>
+<summary><strong>GraphQL API:</strong></summary>
+<p></p>
+
+**Request:**
+
+
+Utilize `mood(id: !ID)` query. 
+
+**Types:**
+
+
+Types for the Query can be found in [./src/types/graphql.ts](./src/types/graphql.ts)
+
+
+**Example response:**
+
+
+```json
+{
+  "data": {
+    "mood": {
+      "id": "1",
+      "emoji": "😄",
+      "description": "A state of being happy or experiencing pleasure.",
+      "title": "Happiness",
+      "word": {
+        "definitions": [
+          "The state of being happy.",
+          "A feeling of pleasure or contentment."
+        ],
+        "partOfSpeech": "Noun",
+        "pronunciation": "/ˈhæp.i.nəs/"
+      }
+    }
+  }
+}
+```
+</details>
+
+---
+
+- [ ] Implement the functionality to send selected "moods" to our API. Utilize the `onSend` prop from the [`CTA`](./src/ui/CTA.tsx) component in the [`App`](./src/App.tsx) component.
 
 <details>
 <summary><strong>REST API:</strong></summary>

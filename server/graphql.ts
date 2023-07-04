@@ -6,28 +6,41 @@ import http from "http";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { gql } from "apollo-server-express";
-import moodsData from "../data/data.json";
+import controllersFactory from "./controllers";
+import moodsData from "./data.json";
+
+const delay = (time = Math.random() * 1000) =>
+  new Promise((resolve) => setTimeout(resolve, time));
+const controllers = controllersFactory(moodsData);
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
   type Query {
-    getMoods(skip: Int = 0, limit: Int, search: String): GetMoodsResults!
-  }
-
-  type GetMoodsResults {
-    moods: [Mood!]!
-    pagination: Pagination!
+    moods(skip: Int = 0, limit: Int, search: String): MoodsResults!
+    mood(id: ID!): Mood!
   }
 
   type Mutation {
     saveCurrentMood(moodIds: [ID!]!): [Mood!]!
   }
 
+  type MoodsResults {
+    moods: [Mood!]!
+    pagination: Pagination!
+  }
+
   type Mood {
     id: ID!
-    emoji: String!
     title: String!
+    emoji: String!
     description: String!
+    word: Word
+  }
+
+  type Word {
+    pronunciation: String!
+    definitions: [String!]!
+    partOfSpeech: String!
   }
 
   type Pagination {
@@ -37,39 +50,25 @@ const typeDefs = gql`
   }
 `;
 
-// Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    getMoods: (parent, args) => {
+    moods: (parent, args) => {
       const { skip, limit, search } = args as {
         skip: number;
         limit?: number;
         search?: string;
       };
-
-      const data = search
-        ? moodsData.filter((mood) =>
-            mood.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-          )
-        : moodsData;
-
-      const moods =
-        limit !== undefined && limit >= 0
-          ? data.slice(skip, limit)
-          : data.slice(skip);
-
-      return {
-        moods,
-        pagination: { skip, limit: limit ?? 0, count: moodsData.length },
-      };
+      return delay().then(() => controllers.moods({ skip, limit, search }));
+    },
+    mood: (parent, args) => {
+      const { id } = args as { id: string };
+      return delay().then(() => controllers.mood(id));
     },
   },
   Mutation: {
     saveCurrentMood: (parent, args) => {
       const { moodIds } = args as { moodIds: string[] };
-      return moodIds
-        .map((id) => moodsData.find((mood) => mood.id === id))
-        .filter(Boolean);
+      return delay().then(() => controllers.saveCurrentMood(moodIds));
     },
   },
 };

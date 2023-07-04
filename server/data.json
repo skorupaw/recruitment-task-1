@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "title": "Happiness",
+    "emoji": "😄",
+    "definitions": [
+      "The state of being happy.",
+      "A feeling of pleasure or contentment."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A state of being happy or experiencing pleasure.",
+    "pronunciation": "/ˈhæp.i.nəs/"
+  },
+  {
+    "id": 2,
+    "title": "Sadness",
+    "emoji": "😢",
+    "definitions": [
+      "The state of being sad or unhappy.",
+      "A feeling of sorrow or grief."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The state of being sad or unhappy.",
+    "pronunciation": "/ˈsæd.nəs/"
+  },
+  {
+    "id": 3,
+    "title": "Anger",
+    "emoji": "😡",
+    "definitions": [
+      "A strong feeling of displeasure or rage.",
+      "A strong feeling of hostility or fury."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A strong feeling of displeasure, rage, or hostility.",
+    "pronunciation": "/ˈæŋ.ɡər/"
+  },
+  {
+    "id": 4,
+    "title": "Love",
+    "emoji": "❤️",
+    "definitions": [
+      "An intense feeling of deep affection or fondness.",
+      "A strong or passionate affection towards someone or something."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "An intense feeling of affection or fondness.",
+    "pronunciation": "/lʌv/"
+  },
+  {
+    "id": 5,
+    "title": "Fear",
+    "emoji": "😨",
+    "definitions": [
+      "An unpleasant emotion caused by the belief that someone or something is dangerous, likely to cause pain, or a threat.",
+      "A feeling of anxiety concerning the outcome of something or the safety and well-being of someone."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "An unpleasant emotion caused by the belief of danger or threat.",
+    "pronunciation": "/fɪər/"
+  },
+  {
+    "id": 6,
+    "title": "Excitement",
+    "emoji": "😃",
+    "definitions": [
+      "A feeling of great enthusiasm or eagerness.",
+      "The state of being emotionally aroused and stimulated."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of great enthusiasm or eagerness.",
+    "pronunciation": "/ɪkˈsaɪt.mənt/"
+  },
+  {
+    "id": 7,
+    "title": "Surprise",
+    "emoji": "😮",
+    "definitions": [
+      "An unexpected or astonishing event, fact, or thing.",
+      "The act of surprising or the state of being surprised."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "An unexpected or astonishing event, fact, or thing.",
+    "pronunciation": "/səˈpraɪz/"
+  },
+  {
+    "id": 8,
+    "title": "Disgust",
+    "emoji": "🤢",
+    "definitions": [
+      "A feeling of revulsion or profound disapproval.",
+      "A strong aversion or repugnance towards something."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of revulsion or profound disapproval.",
+    "pronunciation": "/dɪsˈɡʌst/"
+  },
+  {
+    "id": 9,
+    "title": "Confusion",
+    "emoji": "😕",
+    "definitions": [
+      "A state of being bewildered or unclear in one's mind.",
+      "A lack of understanding or uncertainty."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A state of being bewildered or unclear in one's mind.",
+    "pronunciation": "/kənˈfjuː.ʒən/"
+  },
+  {
+    "id": 10,
+    "title": "Peace",
+    "emoji": "✌️",
+    "definitions": [
+      "The state of being free from disturbance or conflict.",
+      "A state of tranquility or harmony."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The state of being free from disturbance or conflict.",
+    "pronunciation": "/piːs/"
+  },
+  {
+    "id": 11,
+    "title": "Pride",
+    "emoji": "🦚",
+    "definitions": [
+      "A feeling of deep pleasure or satisfaction derived from one's achievements, qualities, or possessions.",
+      "A sense of self-respect or self-worth."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of deep pleasure or satisfaction derived from one's achievements, qualities, or possessions.",
+    "pronunciation": "/praɪd/"
+  },
+  {
+    "id": 12,
+    "title": "Jealousy",
+    "emoji": "😒",
+    "definitions": [
+      "A feeling of envy or resentment towards someone's possessions, qualities, or luck.",
+      "A state of fear or suspicion of rivalry or unfaithfulness."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of envy or resentment towards someone's possessions, qualities, or luck.",
+    "pronunciation": "/ˈdʒɛl.ə.si/"
+  },
+  {
+    "id": 13,
+    "title": "Hope",
+    "emoji": "🤞",
+    "definitions": [
+      "A feeling of expectation and desire for a certain thing to happen.",
+      "A feeling of trust."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of expectation and desire for a certain thing to happen.",
+    "pronunciation": "/hoʊp/"
+  },
+  {
+    "id": 14,
+    "title": "Grief",
+    "emoji": "😭",
+    "definitions": [
+      "Intense sorrow, especially caused by someone's death.",
+      "Deep sadness or mental anguish."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "Intense sorrow, especially caused by someone's death.",
+    "pronunciation": "/ɡriːf/"
+  },
+  {
+    "id": 15,
+    "title": "Boredom",
+    "emoji": "😴",
+    "definitions": [
+      "The state of being bored; lack of interest or excitement.",
+      "The feeling of weariness and dissatisfaction due to a lack of interest or activity."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The state of being bored; lack of interest or excitement.",
+    "pronunciation": "/ˈbɔːrdəm/"
+  },
+  {
+    "id": 16,
+    "title": "Courage",
+    "emoji": "🦁",
+    "definitions": [
+      "The ability to do something that frightens or challenges one; bravery.",
+      "Strength in the face of pain, grief, or danger."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The ability to do something that frightens or challenges one; bravery.",
+    "pronunciation": "/ˈkʌr.ɪdʒ/"
+  },
+  {
+    "id": 17,
+    "title": "Gratitude",
+    "emoji": "🙏",
+    "definitions": [
+      "The quality of being thankful; readiness to show appreciation for and to return kindness.",
+      "A feeling of appreciation or thanks."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The quality of being thankful; readiness to show appreciation for and to return kindness.",
+    "pronunciation": "/ˈɡræt.ɪ.tuːd/"
+  },
+  {
+    "id": 18,
+    "title": "Curiosity",
+    "emoji": "🧐",
+    "definitions": [
+      "A strong desire to know or learn something.",
+      "An eager interest in the nature or real truth of something."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A strong desire to know or learn something.",
+    "pronunciation": "/ˌkjʊə.riˈɒs.ɪ.ti/"
+  },
+  {
+    "id": 19,
+    "title": "Envy",
+    "emoji": "😫",
+    "definitions": [
+      "A feeling of discontented or resentful longing aroused by someone else's possessions, qualities, or luck.",
+      "A desire to have a quality, possession, or other desirable attribute belonging to someone else."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of discontented or resentful longing aroused by someone else's possessions, qualities, or luck.",
+    "pronunciation": "/ˈɛn.vi/"
+  },
+  {
+    "id": 20,
+    "title": "Shame",
+    "emoji": "😳",
+    "definitions": [
+      "A painful feeling of humiliation or distress caused by the consciousness of wrong or foolish behavior.",
+      "A strong sense of guilt, embarrassment, or remorse."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A painful feeling of humiliation or distress caused by the consciousness of wrong or foolish behavior.",
+    "pronunciation": "/ʃeɪm/"
+  },
+  {
+    "id": 21,
+    "title": "Pity",
+    "emoji": "😔",
+    "definitions": [
+      "The feeling of sorrow and compassion caused by the suffering and misfortunes of others.",
+      "A sympathetic concern and compassion for the sufferings or misfortunes of others."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The feeling of sorrow and compassion caused by the suffering and misfortunes of others.",
+    "pronunciation": "/ˈpɪt.i/"
+  },
+  {
+    "id": 22,
+    "title": "Pleasure",
+    "emoji": "🥳",
+    "definitions": [
+      "A feeling of happy satisfaction and enjoyment.",
+      "The state of experiencing satisfaction, enjoyment, or gratification."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of happy satisfaction and enjoyment.",
+    "pronunciation": "/ˈplɛʒ.ər/"
+  },
+  {
+    "id": 23,
+    "title": "Embarrassment",
+    "emoji": "😳",
+    "definitions": [
+      "A feeling of self-consciousness, shame, or awkwardness.",
+      "The state of feeling foolish, humiliated, or uneasy."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of self-consciousness, shame, or awkwardness.",
+    "pronunciation": "/ɪmˈbær.əs.mənt/"
+  },
+  {
+    "id": 24,
+    "title": "Regret",
+    "emoji": "😔",
+    "definitions": [
+      "A feeling of sadness, repentance, or disappointment over something that has happened or been done.",
+      "A sense of loss, disappointment, or dissatisfaction."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of sadness, repentance, or disappointment over something that has happened or been done.",
+    "pronunciation": "/rɪˈɡret/"
+  },
+  {
+    "id": 25,
+    "title": "Jealousy",
+    "emoji": "😒",
+    "definitions": [
+      "A feeling of envy or resentment towards someone's possessions, qualities, or luck.",
+      "A state of fear or suspicion of rivalry or unfaithfulness."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of envy or resentment towards someone's possessions, qualities, or luck.",
+    "pronunciation": "/ˈdʒɛl.ə.si/"
+  },
+  {
+    "id": 26,
+    "title": "Satisfaction",
+    "emoji": "😌",
+    "definitions": [
+      "A feeling of contentment or fulfillment.",
+      "The state of being pleased, gratified, or fulfilled."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of contentment or fulfillment.",
+    "pronunciation": "/ˌsæt.ɪsˈfæk.ʃən/"
+  },
+  {
+    "id": 27,
+    "title": "Excitement",
+    "emoji": "😃",
+    "definitions": [
+      "A feeling of great enthusiasm or eagerness.",
+      "The state of being emotionally aroused and stimulated."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of great enthusiasm or eagerness.",
+    "pronunciation": "/ɪkˈsaɪt.mənt/"
+  },
+  {
+    "id": 28,
+    "title": "Frustration",
+    "emoji": "😤",
+    "definitions": [
+      "The feeling of being upset or annoyed, especially because of the inability to change or achieve something.",
+      "A state of dissatisfaction, discontentment, or annoyance."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The feeling of being upset or annoyed, especially because of the inability to change or achieve something.",
+    "pronunciation": "/frʌsˈtreɪ.ʃən/"
+  },
+  {
+    "id": 29,
+    "title": "Compassion",
+    "emoji": "❤️",
+    "definitions": [
+      "A feeling of deep sympathy and sorrow for the suffering or misfortune of others, accompanied by a strong desire to help.",
+      "A sympathetic consciousness of others' distress, together with a desire to alleviate it."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of deep sympathy and sorrow for the suffering or misfortune of others, accompanied by a strong desire to help.",
+    "pronunciation": "/kəmˈpæʃ.ən/"
+  },
+  {
+    "id": 30,
+    "title": "Disappointment",
+    "emoji": "😞",
+    "definitions": [
+      "A feeling of sadness or displeasure caused by the nonfulfillment of one's hopes or expectations.",
+      "The state of feeling let down or frustrated due to the failure of something to meet one's expectations."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of sadness or displeasure caused by the nonfulfillment of one's hopes or expectations.",
+    "pronunciation": "/ˌdɪs.əˈpɔɪnt.mənt/"
+  },
+  {
+    "id": 31,
+    "title": "Gratefulness",
+    "emoji": "🙏",
+    "definitions": [
+      "The state of being grateful; a feeling of thankfulness or appreciation.",
+      "The quality of being thankful and appreciative."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The state of being grateful; a feeling of thankfulness or appreciation.",
+    "pronunciation": "/ˈɡreɪt.fəl.nəs/"
+  },
+  {
+    "id": 32,
+    "title": "Loneliness",
+    "emoji": "😔",
+    "definitions": [
+      "The state of being alone or feeling isolated.",
+      "A feeling of sadness or abandonment due to a lack of companionship or social interaction."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The state of being alone or feeling isolated.",
+    "pronunciation": "/ˈloʊn.li.nəs/"
+  },
+  {
+    "id": 33,
+    "title": "Contentment",
+    "emoji": "😌",
+    "definitions": [
+      "A state of happiness and satisfaction.",
+      "The state of being content or fulfilled."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A state of happiness and satisfaction.",
+    "pronunciation": "/kənˈtɛnt.mənt/"
+  },
+  {
+    "id": 34,
+    "title": "Relief",
+    "emoji": "😌",
+    "definitions": [
+      "A feeling of reassurance and relaxation following the removal of stress, pain, or anxiety.",
+      "The state of being free from distress, worry, or discomfort."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A feeling of reassurance and relaxation following the removal of stress, pain, or anxiety.",
+    "pronunciation": "/rɪˈliːf/"
+  },
+  {
+    "id": 35,
+    "title": "Awe",
+    "emoji": "😲",
+    "definitions": [
+      "An overwhelming feeling of reverence, admiration, or fear.",
+      "A feeling of profound respect and wonder inspired by something impressive or extraordinary."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "An overwhelming feeling of reverence, admiration, or fear.",
+    "pronunciation": "/ɔː/"
+  },
+  {
+    "id": 36,
+    "title": "Nostalgia",
+    "emoji": "📷",
+    "definitions": [
+      "A sentimental longing or wistful affection for the past, typically for a period or place with happy personal associations.",
+      "A bittersweet longing for things, persons, or situations of the past."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "A sentimental longing or wistful affection for the past, typically for a period or place with happy personal associations.",
+    "pronunciation": "/nɒˈstæl.dʒə/"
+  },
+  {
+    "id": 37,
+    "title": "Inspiration",
+    "emoji": "💡",
+    "definitions": [
+      "The process of being mentally stimulated to do or feel something, especially to do something creative.",
+      "A sudden burst of creativity, motivation, or enthusiasm."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The process of being mentally stimulated to do or feel something, especially to do something creative.",
+    "pronunciation": "/ˌɪn.spəˈreɪ.ʃən/"
+  },
+  {
+    "id": 38,
+    "title": "Amusement",
+    "emoji": "😄",
+    "definitions": [
+      "The state or experience of finding something funny or entertaining.",
+      "The feeling of being entertained or finding something humorous."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The state or experience of finding something funny or entertaining.",
+    "pronunciation": "/əˈmjuːzmənt/"
+  },
+  {
+    "id": 39,
+    "title": "Annoyance",
+    "emoji": "😠",
+    "definitions": [
+      "The feeling or state of being irritated or frustrated.",
+      "A feeling of mild to intense displeasure or irritation."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The feeling or state of being irritated or frustrated.",
+    "pronunciation": "/əˈnɔɪ.əns/"
+  },
+  {
+    "id": 40,
+    "title": "Serenity",
+    "emoji": "🧘",
+    "definitions": [
+      "The state of being calm, peaceful, and untroubled.",
+      "A state of tranquility, inner peace, and harmony."
+    ],
+    "partOfSpeech": "Noun",
+    "description": "The state of being calm, peaceful, and untroubled.",
+    "pronunciation": "/səˈrɛn.ə.ti/"
+  }
+]

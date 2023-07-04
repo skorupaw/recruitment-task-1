@@ -1,16 +1,7 @@
-export function Footer({
-  onSend = () => null,
-}: {
-  onSend?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}) {
+export function Footer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex w-full justify-end">
-      <button
-        className="px-6 py-3 text-sm rounded-3xl font-bold inline-flex border bg-white border-neutral-300 hover:bg-neutral-100 shadow-sm"
-        onClick={onSend}
-      >
-        Send
-      </button>
-    </div>
+    <footer className="fixed bottom-0 left-0 z-20 flex w-full flex-col justify-end border-t border-neutral-200 bg-white p-5 shadow-sm lg:relative lg:border-none lg:bg-transparent lg:shadow-none">
+      {children}
+    </footer>
   );
 }

@@ -1,22 +1,30 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-
-export type RootProps = {
-  type: "rest" | "graphql";
-  children: React.ReactNode;
-};
+import App from "./App";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Mood from "./components/Mood";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
   cache: new InMemoryCache(),
 });
 
-export default function Root({ type, children }: RootProps) {
-  if (type === "graphql") {
-    return <ApolloProvider client={client}>{children}</ApolloProvider>;
-  }
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/mood/:moodId",
+        element: <Mood />,
+      },
+    ],
+  },
+]);
+
+export default function Root() {
   return (
-    <>
-      {children} 
-    </>
-  )
+    <ApolloProvider client={client}>
+      <RouterProvider router={router} />
+    </ApolloProvider>
+  );
 }
