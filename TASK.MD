@@ -103,7 +103,7 @@ Types for the GraphQL response can be found in [./src/types/graphql.ts](./src/ty
 
 ---
 
-- [ ] Add the ability to select "mood cards" using the `isSelected` and `onSelect` props of the [`Card`](./src/ui/Card.tsx) component.
+- [ ] Add the ability to select and deselect "mood cards" using the `isSelected` and `onSelect` props of the [`Card`](./src/ui/Card.tsx) component. "Mood card" can be selected by clicking on the dot in the top right coroner.
 
 ---
 
