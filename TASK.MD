@@ -250,7 +250,7 @@ Utilize `mood(id: !ID)` query.
 **Types:**
 
 
-Types for the Query can be found in [./src/types/graphql.ts](./src/types/graphql.ts)
+Types for the query can be found in [./src/types/graphql.ts](./src/types/graphql.ts)
 
 
 **Example response:**
@@ -286,7 +286,7 @@ Types for the Query can be found in [./src/types/graphql.ts](./src/types/graphql
 <summary><strong>REST API:</strong></summary>
 <p></p>
 
-Send POST request to http://localhost:4000/api/moods/current with `{body: { moodIds: [<ids>] }}`. 
+Send _POST_ request to http://localhost:4000/api/moods/current with `{body: { moodIds: [<ids>] }}`. 
 </details>
 
 
