@@ -53,6 +53,7 @@ Types for the REST response can be found in [./src/types/rest.ts](./src/types/in
 <details>
 <summary><strong>GraphQL API:</strong></summary>
 <p></p>
+
 > You can access GraphQL sandbox navigating to: http://localhost:4000
 
 **Request:**
@@ -295,4 +296,4 @@ Send mutation with selected moods ids `saveCurrentMoods(moodsIds: [ID!]!)`.
 
 ---
 
-- [ ] Disable navigation buttons when user reach the first and the last page, this can be achieved using `isPreviousDisabled` and `isNextDisabled` from [`Navigation`](./src/ui/Navigation.tsx) component.
+- [ ] Disable navigation buttons when user reaches the first and the last page, this can be achieved using `isPreviousDisabled` and `isNextDisabled` from [`Navigation`](./src/ui/Navigation.tsx) component.
