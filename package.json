@@ -52,10 +52,11 @@
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
     "vitest": "^0.32.2",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "ts-node": "^10.9.1"
   },
   "engines": {
-    "node": ">= 16.0",
+    "node": ">= 16.0 < 19",
     "npm": ">= 7.10"
   }
 }
