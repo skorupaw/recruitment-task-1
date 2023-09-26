@@ -1,0 +1,16 @@
+{
+  "name": "end2end",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:task": "npx playwright test -g",
+    "test:full": "npx playwright test full.spec"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.7.0"
+  }
+}

@@ -1,6 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
+import { DetailsSkeleton } from "./DetailsSkeleton";
 
 export type DetailsProps = {
   emoji?: string;
@@ -11,12 +12,21 @@ export type DetailsProps = {
     definitions: string[];
     partOfSpeech: string;
   };
+  isLoading: boolean;
 };
 
-export function Details({ word, emoji, title, description }: DetailsProps) {
+export function Details({
+  word,
+  emoji,
+  title,
+  description,
+  isLoading,
+}: DetailsProps) {
   const navigate = useNavigate();
   const mood = { word, emoji, title };
-  return (
+  return isLoading ? (
+    <DetailsSkeleton />
+  ) : (
     <AnimatePresence>
       {mood && word && (
         <section className="relative w-full overflow-hidden rounded-xl border border-neutral-50 bg-white shadow-lg">
@@ -51,7 +61,9 @@ export function Details({ word, emoji, title, description }: DetailsProps) {
               </span>
               <ol className="list-decimal px-5 py-2 pt-3 text-sm font-light text-neutral-500">
                 {word.definitions.map((definition) => (
-                  <li className="py-0.5">{definition}</li>
+                  <li className="py-0.5" key={definition}>
+                    {definition}
+                  </li>
                 ))}
               </ol>
             </div>

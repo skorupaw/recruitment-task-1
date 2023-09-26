@@ -8,12 +8,16 @@ export type NavigationProps = {
   onPrevious?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   isPreviousDisabled?: boolean;
   isNextDisabled?: boolean;
+  isPreviousHidden?: boolean;
+  isNextHidden?: boolean;
   count?: number;
 };
 
 export function Navigation({
   isNextDisabled,
   isPreviousDisabled,
+  isNextHidden,
+  isPreviousHidden,
   count,
   onNext = () => null,
   onPrevious = () => null,
@@ -26,20 +30,24 @@ export function Navigation({
         <div />
       )}
       <div className="flex gap-2 justify-center">
-        {!isPreviousDisabled && (
+        {!isPreviousHidden && (
           <button
-            className="text-lg hover:bg-neutral-100 hover:border-neutral-100 p-3 rounded-full"
+            className="text-lg hover:bg-neutral-100 p-3 rounded-full group disabled:bg-transparent"
             onClick={onPrevious}
+            disabled={isPreviousDisabled}
           >
-            <ArrowLongLeftIcon className="w-5 h-5" />
+            <ArrowLongLeftIcon className="w-5 h-5 group-disabled:text-neutral-300" />
+            <span className="hidden">Previous page</span>
           </button>
         )}
-        {!isNextDisabled && (
+        {!isNextHidden && (
           <button
-            className="text-lg hover:bg-neutral-100 hover:border-neutral-100 p-3 rounded-full"
+            className="text-lg hover:bg-neutral-100 p-3 rounded-full group disabled:bg-transparent"
             onClick={onNext}
+            disabled={isNextDisabled}
           >
-            <ArrowLongRightIcon className="w-5 h-5" />
+            <ArrowLongRightIcon className="w-5 h-5 group-disabled:text-neutral-300" />
+            <span className="hidden">Next page</span>
           </button>
         )}
       </div>

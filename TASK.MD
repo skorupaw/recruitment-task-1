@@ -1,9 +1,21 @@
 ## Checklist
 
-### Base
----
+<blockquote>
+<strong>Note: After completing every task you can run</strong> 
+<p></p>
 
-- [ ] Fetch and render a list of "mood cards" in the [`Moods`](./src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./src/ui/Card.tsx) component from the [`/ui`](./src/ui/) folder and fetch the data from provided API
+```cmd
+npm run test:task -- task00
+---
+npm run test:task -- task01
+```
+this command will run e2e test suit responsible for testing this part of the assignment. For everything to run smoothly you need to do the tasks in order.
+</blockquote>
+
+--- 
+
+**1.**
+- [ ] Fetch and render a list of "mood cards" in the [`Moods`](./frontend/src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./frontend/src/ui/Card.tsx) component from the [`/ui`](./frontend/src/ui/) folder and fetch the data from provided API
 
 
 <details>
@@ -18,7 +30,7 @@ _GET_ request should be send to http://localhost:4000/api/moods
 **Types:**
 
 
-Types for the REST response can be found in [./src/types/rest.ts](./src/types/index.ts)
+Types for the REST response can be found in [./frontend/src/types/rest.ts](./frontend/src/types/index.ts)
 
 **Example response:**
 
@@ -62,7 +74,7 @@ Apollo client is already setup, so you can jump straight in to writing `useQuery
 
 **Types:**
 
-Types for the GraphQL response can be found in [./src/types/graphql.ts](./src/types/graphql.ts)
+Types for the GraphQL response can be found in [./frontend/src/types/graphql.ts](./frontend/src/types/graphql.ts)
 
 **Example response:**
 
@@ -100,18 +112,27 @@ Types for the GraphQL response can be found in [./src/types/graphql.ts](./src/ty
 
 ---
 
-- [ ] Ensure that the search input (which can be found in [`App`](./src/App.tsx) component), is focused when the page is reloaded.
+**2.**
+- [ ] Display loading skeleton while waiting for the response from the server. This can be achieved using `isLoading` prop from [`Card`](./frontend/src/ui/Card.tsx) component.
 
 ---
 
-- [ ] Add the ability to select and deselect "mood cards" using the `isSelected` and `onSelect` props of the [`Card`](./src/ui/Card.tsx) component. "Mood card" can be selected by clicking on the dot in the top right corner.
+**3.**
+- [ ] Ensure that the search input (which can be found in [`App`](./frontend/src/App.tsx) component), is focused when the page is reloaded.
 
 ---
 
+**4.**
+- [ ] Add the ability to select and deselect "mood cards" using the `isSelected` and `onSelect` props of the [`Card`](./frontend/src/ui/Card.tsx) component. "Mood card" can be selected by clicking on the dot in the top right corner.
+
+---
+
+**5.**
 - [ ] Limit the number of possible mood selections to 3. 
 
 --- 
 
+**6.**
 - [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with appropriate variables:
 
 <details>
@@ -130,7 +151,8 @@ Add query variable `{"limit": 3}`.
 
 ---
 
-- [ ] Implement pagination functionality. The [`Navigation`](./src/ui/Navigation.tsx) component should have two optional props: `onNext` and `onPrevious`. Add appropriate handles to alow user to: 
+**7.**
+- [ ] Implement pagination functionality. The [`Navigation`](./frontend/src/ui/Navigation.tsx) component should have two optional props: `onNext` and `onPrevious`. Add appropriate handles to alow user to: 
 
   - [ ] By clicking "Next" display 3 next moods from API (increase the `limit` by 3 and `skip` by 3)
 
@@ -166,6 +188,12 @@ Extend query variables by adding `{"skip": 3}`.
 
 ---
 
+**8.**
+- [ ] Disable navigation button when waiting for the response from the backed server, this can be achieved using the `isNextDisabled` and `isPreviousDisabled` props from [`Navigation`](./frontend/src/ui/Navigation.tsx) component. 
+
+---
+
+**9.**
 - [ ] Add search functionality. Without impacting the previous functionality. When user types something into the search input, we should make an API call and display the results accordingly.
 
 
@@ -185,14 +213,18 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 
 ---
 
-- [ ] Display [`NoResults`](./src/ui/NoResults.tsx) component from [`ui`](./src/ui) when no results are found for a given query
+**10.**
+- [ ] Debounce the search input. Request shouldn't be send as long as the user is typing.
 
 ---
 
-### Bonus
+**11.**
+- [ ] Display [`NoResults`](./frontend/src/ui/NoResults.tsx) component from [`ui`](./frontend/src/ui) when no results are found for a given query
+
 ---
 
-- [ ] Display additional information about given mood. This can be achieved by editing existing [`Mood`](./src/components/Mood.tsx) component. Use `moodId` provided from query params to fetch the data from appropriate endpoint, then to display retrieved information utilize [`Details`](./src/ui/Details.tsx) component from [`/ui`](./src/ui) folder. **Please make sure that user can click on the multiple mood cards while data is loading but only one state updated will be performed**
+**12.**
+- [ ] Display additional information about given mood. This can be achieved by editing existing [`Mood`](./frontend/src/components/Mood.tsx) component. Use `moodId` provided from query params to fetch the data from appropriate endpoint, then to display retrieved information utilize [`Details`](./frontend/src/ui/Details.tsx) component from [`/ui`](./frontend/src/ui) folder. **Please make sure that user can click on the multiple mood cards while data is loading but only one state updated will be performed**
 
 <details>
 <summary><strong>REST API:</strong></summary>
@@ -207,7 +239,7 @@ Send _GET_ request to http://localhost:4000/moods/:moodId
 **Types:**
 
 
-Types for the REST response can be found in [./src/types/rest.ts](./src/types/rest.ts)
+Types for the REST response can be found in [./frontend/src/types/rest.ts](./frontend/src/types/rest.ts)
 
 
 **Example response:**
@@ -243,7 +275,7 @@ Utilize `mood(id: !ID)` query.
 **Types:**
 
 
-Types for the query can be found in [./src/types/graphql.ts](./src/types/graphql.ts)
+Types for the query can be found in [./frontend/src/types/graphql.ts](./frontend/src/types/graphql.ts)
 
 
 **Example response:**
@@ -273,7 +305,13 @@ Types for the query can be found in [./src/types/graphql.ts](./src/types/graphql
 
 ---
 
-- [ ] Implement the functionality to send selected "moods" to our API. Utilize the `onSend` prop from the [`CTA`](./src/ui/CTA.tsx) component in the [`App`](./src/App.tsx) component.
+**13.**
+- [ ] Display loading skeleton while waiting for the response from the server. This can be achieved using `isLoading` prop from [`Details`](./frontend/src/ui/Details.tsx) component.
+
+---
+
+**14.**
+- [ ] Implement the functionality to send selected "moods" to our API. Utilize the `onSend` prop from the [`CTA`](./frontend/src/ui/CTA.tsx) component in the [`App`](./frontend/src/App.tsx) component. 
 
 <details>
 <summary><strong>REST API:</strong></summary>
@@ -290,10 +328,25 @@ Send _POST_ request to http://localhost:4000/api/moods/current with `{body: { mo
 Send mutation with selected moods ids `saveCurrentMoods(moodsIds: [ID!]!)`.
 </details>
 
+> **Note:**
+> For this task there are no e2e tests.
+
 ---
 
-- [ ] Display number of all moods. This can be achieved by passing the `count` data from the request to the [`Navigation`](./src/ui/Navigation.tsx) component as a prop.
+**15.**
+- [ ] Display number of all moods. This can be achieved by passing the `count` data from the request to the [`Navigation`](./frontend/src/ui/Navigation.tsx) component as a prop.
 
 ---
 
-- [ ] Disable navigation buttons when user reaches the first and the last page, this can be achieved using `isPreviousDisabled` and `isNextDisabled` from [`Navigation`](./src/ui/Navigation.tsx) component.
+**16.**
+- [ ] Hide navigation buttons when user reaches the first and the last page, this can be achieved using `isPreviousHidden` and `isNextHidden` props from [`Navigation`](./frontend/src/ui/Navigation.tsx) component.
+
+---
+
+**17.**
+- [ ] Add unit tests. You can find some examples in the [`Mood.spec.tsx`](./frontend/src/components/Mood.spec.tsx) and [`Moods.spec.tsx`](./frontend/src/components/Moods.spec.tsx) files. The setup for the [msw](https://mswjs.io/) can be found in [`setup-tests.ts`](./frontend/setup-tests.ts). Once again if you prefer can change the unit tests setup, matchers and runners, this one is configured to run with [`@testing-library`](https://testing-library.com/) and [`vitest`](https://vitest.dev/)
+
+You can run unit-tests via this command:
+```cmd
+npm run test
+```
