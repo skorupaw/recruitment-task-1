@@ -70,7 +70,7 @@ npm run serve:graphql
 
 - You can use README to write down your thoughts that you may have had while completing the task. You can present your point of view or explain your thought process. 
 
-- Pleas provide copy the checklist from [TASK.MD](./TASK.md) and mark the implemented points.
+- Pleas provide a copy of the checklist from [TASK.MD](./TASK.md) and mark the implemented points.
 
 - Please make sure that there are no console errors or bugs. It's better if some point is not delivered than if the implementation is buggy or incomplete.
 
