@@ -2,13 +2,12 @@ import "@bogeychan/elysia-polyfills/node/index.js";
 
 import { Elysia } from "elysia";
 import { apollo, gql } from "@elysiajs/apollo";
-// import controllersFactory from "./controllers";
+import controllersFactory from "./controllers";
 import moodsData from "./data.json";
-const controllers = {} as any;
 
 const delay = (time = Math.random() * 1000) =>
   new Promise((resolve) => setTimeout(resolve, time));
-// const controllers = controllersFactory(moodsData);
+const controllers = controllersFactory(moodsData);
 
 const typeDefs = gql`
   type Query {
