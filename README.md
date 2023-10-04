@@ -21,8 +21,8 @@ The application should display list of moods provided by API and allow user to s
 ## General advice
 
 - You can take a look around the project and change every part of it, but all the tasks can be achieved by:
-  - Modifying the [`App.tsx`](./src/App.tsx) 
-  - Creating and modifying files in [`/components`](./src/components/) folder.
+  - Modifying the [`App.tsx`](./frontend/src/App.tsx) 
+  - Creating and modifying files in [`/components`](./frontend/src/components/), [`/src`](./frontend/src/) folders.
 - We advise you to do the tasks in order, most of them built upon each other.
 
 ## Before you start
@@ -84,4 +84,4 @@ Compress the task in a .bundle file. We want to have the entire git history. The
 ```cmd
 git bundle create your-name.bundle --all
 ```
-Be sure to use .gitignore and not include, for example, node_modules inside your .bundle file.
+Be sure to use `.gitignore` and not include, for example, `node_modules` inside your .bundle file.
