@@ -1,18 +1,18 @@
-## Checklist
 
-<blockquote>
-<strong>Note: After completing every task you can run</strong> 
-<p></p>
+## End2End Tests
+
+**Note: After completing every task you can run**
 
 ```cmd
 npm run test:task -- task00
----
+
+# Example
 npm run test:task -- task01
 ```
-this command will run e2e test suit responsible for testing this part of the assignment. For everything to run smoothly you need to do the tasks in order.
-</blockquote>
+this command will run e2e test suit responsible for testing this part of the assignment. For everything to run smoothly you need to do the tasks in order. This should check correctness of every individual task, if the tests are failing but you are sure that the task is completed don't hesitate to ignore them. We check every manual check every solution. 
 
---- 
+## Checklist
+
 
 **1.**
 - [ ] Fetch and render a list of "mood cards" in the [`Moods`](./frontend/src/components/Moods.tsx) component. To accomplish this, utilize the [`Card`](./frontend/src/ui/Card.tsx) component from the [`/ui`](./frontend/src/ui/) folder and fetch the data from provided API
@@ -343,7 +343,10 @@ Send mutation with selected moods ids `saveCurrentMoods(moodsIds: [ID!]!)`.
 
 ---
 
-**17.**
+
+## Unit Tests
+
+
 - [ ] Add unit tests. You can find some examples in the [`Mood.spec.tsx`](./frontend/src/components/Mood.spec.tsx) and [`Moods.spec.tsx`](./frontend/src/components/Moods.spec.tsx) files. The setup for the [msw](https://mswjs.io/) can be found in [`setup-tests.ts`](./frontend/setup-tests.ts). Once again if you prefer can change the unit tests setup, matchers and runners, this one is configured to run with [`@testing-library`](https://testing-library.com/) and [`vitest`](https://vitest.dev/)
 
 You can run unit-tests via this command:
