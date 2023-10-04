@@ -51,7 +51,7 @@ const resolvers = {
       parent: unknown,
       args: { skip?: number; limit?: number; search: string },
     ) => {
-      const { skip = 0, limit = 3, search } = args;
+      const { skip = 0, limit, search } = args;
       return delay().then(() => controllers.moods({ skip, limit, search }));
     },
     mood: (parent: unknown, args: { id: string }) => {
