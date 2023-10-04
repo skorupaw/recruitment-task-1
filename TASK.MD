@@ -201,7 +201,7 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 **Request:**
 
 
-Send _GET_ request to http://localhost:4000/moods/:moodId
+Send _GET_ request to http://localhost:4000/api/moods/:moodId
 
 
 **Types:**
