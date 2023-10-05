@@ -9,7 +9,7 @@ npm run test:task -- task00
 # Example
 npm run test:task -- task01
 ```
-this command will run e2e test suit responsible for testing this part of the assignment. For everything to run smoothly you need to do the tasks in order. This should check correctness of every individual task, if the tests are failing but you are sure that the task is completed don't hesitate to ignore them. We check every solution manualy. 
+this command will run e2e test suite responsible for testing this part of the assignment. For everything to run smoothly you need to do the tasks in order. This should check correctness of every individual task, if the tests are failing but you are sure that the task is completed don't hesitate to ignore them. We check every solution manually. 
 
 ## Checklist
 
