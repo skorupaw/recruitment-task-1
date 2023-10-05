@@ -22,7 +22,7 @@ const DATA: Mood[] = [
 ];
 
 describe("Moods", () => {
-  it("renders mood card", () => {
+  it("renders a mood card", () => {
     render(<Moods isLoading={false} moods={DATA} />, {
       wrapper: BrowserRouter,
     });
