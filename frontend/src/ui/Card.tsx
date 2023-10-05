@@ -2,13 +2,14 @@ import { cva } from "class-variance-authority";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
+import CardSkeleton from "./CardSkeleton";
 
 export type CardProps = {
   id: string;
   emoji: string;
   title: string;
   description: string;
-  // Need for the next part of the task
+  isLoading?: boolean;
   isSelected?: boolean;
   onSelect?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
 };
@@ -22,7 +23,7 @@ const cardStyle = cva(
         true: "border-2 border-green-500",
       },
     },
-  }
+  },
 );
 
 const checkboxStyle = cva(
@@ -34,7 +35,7 @@ const checkboxStyle = cva(
         true: "border-green-500 bg-green-500 hover:bg-green-600",
       },
     },
-  }
+  },
 );
 
 export function Card({
@@ -42,6 +43,7 @@ export function Card({
   title,
   emoji,
   description,
+  isLoading = false,
   isSelected,
   onSelect = () => null,
 }: CardProps) {
@@ -52,7 +54,9 @@ export function Card({
     onSelect(e);
   };
 
-  return (
+  return isLoading ? (
+    <CardSkeleton />
+  ) : (
     <motion.article
       data-testid={`mood-card-${title}`}
       whileHover={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.12)", y: -4 }}
@@ -65,6 +69,7 @@ export function Card({
         type: "spring",
         duration: 0.25,
       }}
+      aria-checked={isSelected}
     >
       <AnimatePresence>
         <button
@@ -75,9 +80,9 @@ export function Card({
         </button>
       </AnimatePresence>
       <div className="border-b py-3">
-        <h2 className="font-serif text-2xl font-bold">
+        <h3 className="font-serif text-2xl font-bold">
           {title} {emoji}
-        </h2>
+        </h3>
       </div>
       <div className="py-2">
         <p className="py-2 pt-3 text-sm font-light text-neutral-500">
@@ -88,4 +93,4 @@ export function Card({
   );
 }
 
-export default Card
+export default Card;

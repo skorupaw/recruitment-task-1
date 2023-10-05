@@ -7,3 +7,5 @@ export * from "./NoResults";
 export * from "./Footer";
 export * from "./Details";
 export * from "./CTA";
+export * from "./CardSkeleton";
+export * from "./DetailsSkeleton";

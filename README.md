@@ -6,10 +6,12 @@ The following task is a great opportunity to show us your experience, style, and
 
 ```json
 {
-  "node": ">= 16.0 < 19",
-  "npm": ">= 7.10"
+  "node": ">= 18.0 < 19",
+  "npm": ">= 9.5"
 }
 ```
+
+Additionally to running the application localy this repository supports `devcontainers`. If you are experiencing some problems with your local node installation using devcontainers should give you much more reliable results.
 
 ## Description
 The application should display list of moods provided by API and allow user to search, paginate and submit their current mood. Current mood can consist of max three emotions ex. "Happy", "Excited", "Proud".
@@ -19,8 +21,8 @@ The application should display list of moods provided by API and allow user to s
 ## General advice
 
 - You can take a look around the project and change every part of it, but all the tasks can be achieved by:
-  - Modifying the [`App.tsx`](./src/App.tsx) 
-  - Creating and modifying files in [`/components`](./src/components/) folder.
+  - Modifying the [`App.tsx`](./frontend/src/App.tsx) 
+  - Creating and modifying files in [`/components`](./frontend/src/components/), [`/src`](./frontend/src/) folders.
 - We advise you to do the tasks in order, most of them built upon each other.
 
 ## Before you start
@@ -62,4 +64,24 @@ npm run serve:graphql
 ```
 </details>
 
+## Final notes
+
+- We prefer a more straight forward solution relying on pure `react` than one depending on many external tools and libraries.
+
+- You can use README to write down your thoughts that you may have had while completing the task. You can present your point of view or explain your thought process. 
+
+- Pleas provide a copy of the checklist from [TASK.MD](./TASK.md) and mark the implemented points.
+
+- Please make sure that there are no console errors or bugs. It's better if some point is not delivered than if the implementation is buggy or incomplete.
+
+
 <p align="center"><a href="./TASK.MD"><strong>Start assignment</strong></a></p>
+
+## Delivery
+
+You can use GitHub, BitBucket, GitLab, or anything you want, but you need to maintain your repository as private. Do not share our task or your solution in any way such as a public repo.
+Compress the task in a .bundle file. We want to have the entire git history. The easiest way is to run:
+```cmd
+git bundle create your-name.bundle --all
+```
+Be sure to use `.gitignore` and not include, for example, `node_modules` inside your .bundle file.
