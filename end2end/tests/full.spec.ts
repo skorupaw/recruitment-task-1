@@ -20,7 +20,7 @@ test.describe("Cards", () => {
 
     await page.getByRole("button").filter({ hasText: "Next page" }).click();
 
-    const card = await page.getByTestId(/mood-card-.*/).first();
+    const card = page.getByTestId(/mood-card-.*/).first();
 
     await card.getByRole("button").click();
     await expect(card).toHaveAttribute("aria-checked", "false");
@@ -122,7 +122,7 @@ test.describe("Details", () => {
 
     await expect(
       page.locator("section").getByRole("heading", { name: /Happiness/ }),
-    ).not.toBeVisible();
+    ).toBeHidden();
     await expect(page).toHaveURL("/");
   });
 });
