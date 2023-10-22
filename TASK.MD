@@ -25,7 +25,7 @@ this command will run e2e test suite responsible for testing this part of the as
 **Request:**
 
 
-_GET_ request should be send to http://localhost:4000/api/moods
+_GET_ request should be send to http://localhost:5173/api/moods
 
 **Types:**
 
@@ -233,7 +233,7 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 **Request:**
 
 
-Send _GET_ request to http://localhost:4000/api/moods/:moodId
+Send _GET_ request to http://localhost:5173/api/moods/:moodId
 
 
 **Types:**
@@ -317,7 +317,7 @@ Types for the query can be found in [./frontend/src/types/graphql.ts](./frontend
 <summary><strong>REST API:</strong></summary>
 <p></p>
 
-Send _POST_ request to http://localhost:4000/api/moods/current with `{body: { moodIds: [<ids>] }}`. 
+Send _POST_ request to http://localhost:5173/api/moods/current with `{body: { moodIds: [<ids>] }}`. 
 </details>
 
 

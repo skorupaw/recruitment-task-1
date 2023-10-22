@@ -4,7 +4,7 @@ import { rest } from "msw";
 import { setupServer } from "msw/node";
 
 const server = setupServer(
-  rest.get("http://localhost:4000/api/moods/1", (req, res, ctx) => {
+  rest.get("http://localhost:5173/api/moods/1", (req, res, ctx) => {
     return res(
       ctx.json({
         id: 1,

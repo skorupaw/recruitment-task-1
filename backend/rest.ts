@@ -1,7 +1,6 @@
 import "@bogeychan/elysia-polyfills/node/index.js";
 
 import { Elysia, t } from "elysia";
-import { cors } from "@elysiajs/cors";
 import controllersFactory from "./controllers";
 import moodsData from "./data.json" assert { type: "json" };
 
@@ -10,7 +9,6 @@ const delay = (time = Math.random() * 5000) =>
 const controllers = controllersFactory(moodsData);
 
 const app = new Elysia()
-  .use(cors())
   .get("/", ({ set }) => (set.redirect = "/api/moods"))
   .get(
     "/api/moods",

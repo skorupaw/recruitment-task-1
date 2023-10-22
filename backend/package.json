@@ -11,7 +11,6 @@
     "@apollo/server": "^4.9.3",
     "@bogeychan/elysia-polyfills": "latest",
     "@elysiajs/apollo": "^0.6.0",
-    "@elysiajs/cors": "^0.6.0",
     "elysia": "^0.6.19"
   },
   "devDependencies": {
