@@ -56,7 +56,7 @@ export const moods =
 
     return {
       moods,
-      pagination: { skip, limit: limit ?? 0, count: entries.length },
+      pagination: { skip, limit: limit ?? 0, count: filteredEntries.length },
     };
   };
 
