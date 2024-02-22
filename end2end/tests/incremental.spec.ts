@@ -24,7 +24,7 @@ test("@task03 search input is focused when entering the page", async ({
 test('@task04 ability to select "mood cards"', async ({ page }) => {
   await page.goto("/");
 
-  const card = await page.getByTestId("mood-card-Happiness");
+  const card = page.getByTestId("mood-card-Happiness");
 
   await card.getByRole("button").click();
   await expect(card).toHaveAttribute("aria-checked", "true");
@@ -41,7 +41,7 @@ test('@task05 ability to select only 3 "mood cards"', async ({ page }) => {
   const moods = ["Happiness", "Love", "Serenity"];
 
   const cards = await Promise.all(
-    moods.map(async (mood) => await page.getByTestId(`mood-card-${mood}`)),
+    moods.map(async (mood) => page.getByTestId(`mood-card-${mood}`)),
   );
 
   for (const card of cards) {
@@ -50,7 +50,7 @@ test('@task05 ability to select only 3 "mood cards"', async ({ page }) => {
     await expect(card).toHaveClass(/border-green-500/);
   }
 
-  const card = await page.getByTestId("mood-card-Anger");
+  const card = page.getByTestId("mood-card-Anger");
   await card.getByRole("button").click();
   await expect(card).toHaveAttribute("aria-checked", "false");
   await expect(card).toHaveClass(/border-neutral-50/);
@@ -162,7 +162,7 @@ test("@task12 additional mood information is displayed when clicking on the mood
 
   await expect(
     page.locator("section").getByRole("heading", { name: /Happiness/ }),
-  ).not.toBeVisible();
+  ).toBeHidden();
   await expect(page).toHaveURL("/");
 });
 
