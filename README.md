@@ -6,7 +6,7 @@ The following task is a great opportunity to show us your experience, style, and
 
 ```json
 {
-  "node": ">= 18.0 < 19",
+  "node": ">= 18.0 < 18.9",
   "npm": ">= 9.5"
 }
 ```
