@@ -1,19 +1,31 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Cards", () => {
+  test("loading skeleton are displayed when fetching mood cards", async ({
+    context,
+  }) => {
+    const page = await context.newPage();
+    await page.goto("/");
+
+    for (let i = 0; i < 3; i += 1) {
+      await expect(page.getByLabel("loading").nth(i)).toBeVisible();
+    }
+  });
+
   test("renders a list of 3 mood cards", async ({ page }) => {
     await page.goto("/");
 
     await expect(page.getByTestId(/mood-card-.*/)).toHaveCount(3);
   });
 
-  test('ability to select not more then 3 "mood cards"', async ({ page }) => {
+  test('ability to select not more than 3 "mood cards"', async ({ page }) => {
     await page.goto("/");
 
+    await expect(page.getByTestId(/mood-card-.*/).first()).toBeVisible();
     const cards = await page.getByTestId(/mood-card-.*/).all();
 
     for (const card of cards) {
-      await card.getByRole("button").click();
+      await card.getByRole("checkbox").click();
       await expect(card).toHaveAttribute("aria-checked", "true");
       await expect(card).toHaveClass(/border-green-500/);
     }
@@ -22,7 +34,7 @@ test.describe("Cards", () => {
 
     const card = page.getByTestId(/mood-card-.*/).first();
 
-    await card.getByRole("button").click();
+    await card.getByRole("checkbox").click();
     await expect(card).toHaveAttribute("aria-checked", "false");
     await expect(card).toHaveClass(/border-neutral-50/);
   });
@@ -40,7 +52,7 @@ test.describe("Navigation", () => {
       await page.getByPlaceholder("Search").fill(mood);
       const card = page.getByTestId(`mood-card-${mood}`);
       await expect(card).toBeVisible();
-      await card.getByRole("button").click();
+      await card.getByRole("checkbox").click();
     }
 
     for (const mood of moods) {
@@ -70,7 +82,7 @@ test.describe("Navigation", () => {
 
     await page.getByPlaceholder("Search").fill("xxxxxxx");
 
-    await expect(page.getByText("No moods found!")).toBeVisible();
+    await expect(page.getByText(/no moods .* found!/i)).toBeVisible();
   });
 
   test("navigation buttons are disabled when user reaches first and last page", async ({
@@ -106,6 +118,15 @@ test.describe("Navigation", () => {
 });
 
 test.describe("Details", () => {
+  test("loading state is displayed when clicking on the mood card", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    await page.getByTestId("mood-card-Happiness").click();
+
+    await expect(page.getByLabel("loading")).toBeVisible();
+  });
   test("additional mood information is displayed when clicking on the mood", async ({
     page,
   }) => {
@@ -125,6 +146,28 @@ test.describe("Details", () => {
     ).toBeHidden();
     await expect(page).toHaveURL("/");
   });
+
+  test("only one state update is performed when clicking on the mood cards", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    await expect(page.getByTestId(/mood-card-.*/).first()).toBeVisible();
+
+    const cards = ["Happiness", "Sadness"];
+
+    for (let i = 0; i < 3; i += 1) {
+      for (const card of cards) {
+        await page.getByTestId(`mood-card-${card}`).click();
+      }
+    }
+
+    await page.getByTestId(`mood-card-Anger`).click();
+
+    await expect(
+      page.locator("section").getByRole("heading", { name: /Anger/ }),
+    ).toBeVisible();
+  });
 });
 
 test.describe("UX", () => {
@@ -138,5 +181,25 @@ test.describe("UX", () => {
     await page.goto("/");
 
     await expect(page.getByText("Count: 39")).toBeVisible();
+
+    await page.getByPlaceholder("Search").fill("Ha");
+
+    await expect(page.getByText("Count: 2")).toBeVisible();
+  });
+
+  test("mood card is selected only when select button is clicked", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const card = page.getByTestId("mood-card-Happiness");
+
+    card.click();
+    await expect(card).toHaveAttribute("aria-checked", "false");
+    await expect(card).toHaveClass(/border-neutral-50/);
+
+    await card.getByRole("checkbox").click();
+    await expect(card).toHaveAttribute("aria-checked", "true");
+    await expect(card).toHaveClass(/border-green-500/);
   });
 });
