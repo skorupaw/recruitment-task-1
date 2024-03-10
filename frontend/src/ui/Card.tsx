@@ -4,15 +4,17 @@ import { CheckIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
 import CardSkeleton from "./CardSkeleton";
 
-export type CardProps = {
-  id: string;
-  emoji: string;
-  title: string;
-  description: string;
-  isLoading?: boolean;
-  isSelected?: boolean;
-  onSelect?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
-};
+export type CardProps =
+  | {
+      id: string;
+      emoji: string;
+      title: string;
+      description: string;
+      isLoading?: false;
+      isSelected?: boolean;
+      onSelect?: (event?: React.ChangeEvent<HTMLInputElement>) => void;
+    }
+  | { isLoading: true };
 
 const cardStyle = cva(
   "w-full lg:w-80 h-64 bg-white rounded-xl p-5 cursor-pointer border relative",
@@ -26,37 +28,23 @@ const cardStyle = cva(
   },
 );
 
-const checkboxStyle = cva(
-  "absolute top-2 right-2 w-6 h-6 rounded-full border inline-flex justify-center items-center cursor-pointer",
-  {
-    variants: {
-      selected: {
-        false: "border-neutral-200 bg-neutral-100 hover:bg-neutral-200",
-        true: "border-green-500 bg-green-500 hover:bg-green-600",
-      },
-    },
-  },
-);
-
-export function Card({
-  id,
-  title,
-  emoji,
-  description,
-  isLoading = false,
-  isSelected,
-  onSelect = () => null,
-}: CardProps) {
+export function Card(props: CardProps) {
   const navigate = useNavigate();
 
-  const handleSelect = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    onSelect(e);
-  };
+  if (props.isLoading) {
+    return <CardSkeleton />;
+  }
 
-  return isLoading ? (
-    <CardSkeleton />
-  ) : (
+  const {
+    id,
+    title,
+    emoji,
+    description,
+    isSelected,
+    onSelect = () => null,
+  } = props;
+
+  return (
     <motion.article
       data-testid={`mood-card-${title}`}
       whileHover={{ boxShadow: "0 4px 8px rgba(0, 0, 0, 0.12)", y: -4 }}
@@ -72,12 +60,18 @@ export function Card({
       aria-checked={isSelected}
     >
       <AnimatePresence>
-        <button
-          onClick={handleSelect}
-          className={checkboxStyle({ selected: isSelected })}
+        <label
+          className="absolute top-2 right-2 inline-flex"
+          onClick={(e) => e.stopPropagation()}
         >
-          {isSelected && <CheckIcon className="h-4 w-4 fill-white" />}
-        </button>
+          <input
+            type="checkbox"
+            className="peer appearance-none relative w-6 h-6 rounded-full border inline-flex justify-center items-center cursor-pointer border-neutral-200 bg-neutral-100 hover:bg-neutral-200 checked:border-green-500 checked:bg-green-500 checked:hover:bg-green-600"
+            onChange={(e) => onSelect(e)}
+            checked={isSelected}
+          />
+          <CheckIcon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none hidden peer-checked:block fill-white " />
+        </label>
       </AnimatePresence>
       <div className="border-b py-3">
         <h3 className="font-serif text-2xl font-bold">
