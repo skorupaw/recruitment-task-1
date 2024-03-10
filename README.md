@@ -6,7 +6,7 @@ The following task is a great opportunity to show us your experience, style, and
 
 ```json
 {
-  "node": ">= 18.0 < 18.9",
+  "node": ">= 18.0 < 18.19",
   "npm": ">= 9.5"
 }
 ```
@@ -68,9 +68,9 @@ npm run serve:graphql
 
 - We prefer a more straightforward solution relying on pure `react` than one depending on many external tools and libraries.
 
-- You can use README to write down your thoughts that you may have had while completing the task. You can present your point of view or explain your thought process. 
+- You can use [`NOTES.md`](./NOTES.md) to write down your thoughts that you may have had while completing the task. You can present your point of view or explain your thought process. 
 
-- Please provide a copy of the checklist from [TASK.MD](./TASK.md) and mark the implemented points.
+- Please provide a copy of the checklist from [`CHECKLIST.MD`](./CHECKLIST.md) and mark the implemented points.
 
 - Please make sure that there are no console errors or bugs. It's better if some point is not delivered than if the implementation is buggy or incomplete.
 
@@ -79,7 +79,7 @@ npm run serve:graphql
 
 ## Delivery
 
-You can use GitHub, BitBucket, GitLab, or anything you want, but you need to maintain your repository as private. Do not share our task or your solution in any way such as a public repo.
+You can use GitHub, BitBucket, GitLab, or anything you want, but you need to maintain your repository as private. **Do not share our task or your solution in any way such as a public repo.**
 Compress the task in a .bundle file. We want to have the entire git history. The easiest way is to run:
 ```cmd
 git bundle create your-name.bundle --all
