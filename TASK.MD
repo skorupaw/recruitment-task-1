@@ -113,7 +113,7 @@ Types for the GraphQL response can be found in [./frontend/src/types/graphql.ts]
 ---
 
 **2.**
-- [ ] Display a loading skeleton while waiting for the response from the server. This can be achieved using `isLoading` prop from the [`Card`](./frontend/src/ui/Card.tsx) component.
+- [ ] Display 3 loading skeletons while waiting for the response from the server. This can be achieved using `isLoading` prop from the [`Card`](./frontend/src/ui/Card.tsx) component.  
 
 ---
 
@@ -194,7 +194,7 @@ Extend query variables by adding `{"skip": 3}`.
 ---
 
 **9.**
-- [ ] Add a search option, Without impacting the previous functionality. When a user types something into the search input, we should make an API call and display the results accordingly.
+- [ ] Add a search option, without impacting the previous functionality. When a user types something into the search input, we should make an API call and display the results accordingly.
 
 
 <details>
@@ -216,6 +216,9 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 **10.**
 - [ ] Debounce the search input. A request shouldn't be sent as long as the user is typing.
 
+> **Note:**
+> For this task there are no e2e tests.
+
 ---
 
 **11.**
@@ -224,7 +227,7 @@ Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
 ---
 
 **12.**
-- [ ] Display additional information about a given mood. This can be achieved by editing the existing [`Mood`](./frontend/src/components/Mood.tsx) component. Use `moodId` provided from query params to fetch data from the appropriate endpoint, then to display the retrieved information use the [`Details`](./frontend/src/ui/Details.tsx) component from [`/ui`](./frontend/src/ui) folder. **Please make sure that the user can click on the multiple mood cards while data is loading, but only one state update is performed.**
+- [ ] Display additional information about a given mood. This can be achieved by editing the existing [`Mood`](./frontend/src/components/Mood.tsx) component. Use `moodId` provided from query params to fetch the data, then to display retrieved information use the [`Details`](./frontend/src/ui/Details.tsx) component from [`/ui`](./frontend/src/ui) folder. **Please make sure that the user can click on the multiple mood cards while data is loading, but only one state update is performed.**
 
 <details>
 <summary><strong>REST API:</strong></summary>
@@ -347,7 +350,7 @@ Send a mutation with the ids of selected moods `saveCurrentMoods(moodsIds: [ID!]
 ## Unit Tests
 
 
-- [ ] Add unit tests. You can find some examples in the [`Mood.spec.tsx`](./frontend/src/components/Mood.spec.tsx) and [`Moods.spec.tsx`](./frontend/src/components/Moods.spec.tsx) files. The setup for the [msw](https://mswjs.io/) can be found in [`setup-tests.ts`](./frontend/setup-tests.ts). Once again, if you prefer, you can change the unit tests setup, matchers and runners. This one is configured to run with [`@testing-library`](https://testing-library.com/) and [`vitest`](https://vitest.dev/)
+- [ ] Add unit tests. You can find some examples in the [`Mood.spec.tsx`](./frontend/src/components/Mood.spec.tsx) and [`App.spec.tsx`](./frontend/src/App.spec.tsx) files. The setup for the [msw](https://mswjs.io/) and [`@testing-library`](https://testing-library.com) can be found in [`/test-utils`](./frontend/src/test-utils/) and [`setup-tests.ts`](./frontend/setup-tests.ts). Once again, if you prefer, you can change the unit tests setup, matchers and runners. This one is configured to run with [`vitest`](https://vitest.dev/)
 
 You can run unit-tests via this command:
 ```cmd
