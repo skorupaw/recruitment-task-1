@@ -3,34 +3,36 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
 import { DetailsSkeleton } from "./DetailsSkeleton";
 
-export type DetailsProps = {
-  emoji?: string;
-  title?: string;
-  description?: string;
-  word?: {
-    pronunciation: string;
-    definitions: string[];
-    partOfSpeech: string;
-  };
-  isLoading: boolean;
-};
+export type DetailsProps =
+  | {
+      emoji?: string;
+      title?: string;
+      description?: string;
+      word?: {
+        pronunciation: string;
+        definitions: string[];
+        partOfSpeech: string;
+      };
+      isLoading?: false;
+    }
+  | { isLoading: true };
 
-export function Details({
-  word,
-  emoji,
-  title,
-  description,
-  isLoading,
-}: DetailsProps) {
+export function Details(props: DetailsProps) {
   const navigate = useNavigate();
+
+  if (props.isLoading) {
+    return <DetailsSkeleton />;
+  }
+
+  const { word, emoji, title, description } = props;
   const mood = { word, emoji, title };
-  return isLoading ? (
-    <DetailsSkeleton />
-  ) : (
+
+  return (
     <AnimatePresence>
       {mood && word && (
         <section className="relative w-full overflow-hidden rounded-xl border border-neutral-50 bg-white shadow-lg">
           <button
+            aria-label="close"
             className="group absolute right-2 top-2 z-10 rounded-full fill-slate-500 p-2 text-lg hover:border-slate-500 hover:bg-slate-400"
             onClick={() => navigate("/")}
           >
