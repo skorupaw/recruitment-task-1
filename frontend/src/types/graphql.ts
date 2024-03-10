@@ -18,9 +18,9 @@ export type MoodsVariables = {
   search?: string;
 };
 
-export type MoodData = Mood;
+export type MoodData = { mood: Mood };
 
-export type MoodVariables = { id: number };
+export type MoodVariables = { id: number | string };
 
 export type SaveCurrentMoodData = {
   saveCurrentMood: {
