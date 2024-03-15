@@ -3,6 +3,9 @@ import "@bogeychan/elysia-polyfills/node/index.js";
 import { Elysia, t } from "elysia";
 import controllersFactory from "./controllers";
 import moodsData from "./data.json" assert { type: "json" };
+import dotenv from "dotenv";
+
+dotenv.config({ path: "../.env" });
 
 const delay = (time = Math.random() * 5000) =>
   new Promise((resolve) => setTimeout(resolve, time));
@@ -49,7 +52,7 @@ const app = new Elysia()
     },
     { body: t.Object({ moodIds: t.Array(t.String()) }) },
   )
-  .listen(4000);
+  .listen(process.env.VITE_REST_PORT || 4000);
 
 console.log(
   `🦊 Elysia server is running at ${app.server?.hostname}:${app.server?.port}`,

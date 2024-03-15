@@ -11,7 +11,8 @@
     "@apollo/server": "^4.9.3",
     "@bogeychan/elysia-polyfills": "latest",
     "@elysiajs/apollo": "^0.6.0",
-    "elysia": "^0.6.19"
+    "elysia": "^0.6.19",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@types/node": "^18.18.0",
