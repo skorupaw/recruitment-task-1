@@ -71,6 +71,8 @@ test.describe("Navigation", () => {
       await page.getByPlaceholder("Search").fill(mood);
     }
 
+    // eslint-disable-next-line playwright/no-wait-for-timeout
+    await page.waitForTimeout(500);
     const card = page.getByTestId(`mood-card-${moods[moods.length - 1]}`);
     await expect(card).toBeVisible();
   });
@@ -162,6 +164,8 @@ test.describe("Details", () => {
       }
     }
 
+    // eslint-disable-next-line playwright/no-wait-for-timeout
+    await page.waitForTimeout(500);
     await page.getByTestId(`mood-card-Anger`).click();
 
     await expect(
