@@ -1,6 +1,6 @@
 export type NoResultsProps = {
   search?: string;
-}
+};
 
 export function NoResults({ search }: NoResultsProps) {
   return (

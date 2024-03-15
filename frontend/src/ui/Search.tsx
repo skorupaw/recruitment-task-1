@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 export const Search = React.forwardRef<

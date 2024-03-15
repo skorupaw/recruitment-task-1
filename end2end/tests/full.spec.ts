@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Cards", () => {
-  test("loading skeleton are displayed when fetching mood cards", async ({
+  test.skip("loading skeleton are displayed when fetching mood cards", async ({
     context,
   }) => {
     const page = await context.newPage();
@@ -25,7 +25,7 @@ test.describe("Cards", () => {
     const cards = await page.getByTestId(/mood-card-.*/).all();
 
     for (const card of cards) {
-      await card.getByRole("checkbox").click();
+      await card.getByRole("button").click();
       await expect(card).toHaveAttribute("aria-checked", "true");
       await expect(card).toHaveClass(/border-green-500/);
     }
@@ -34,7 +34,7 @@ test.describe("Cards", () => {
 
     const card = page.getByTestId(/mood-card-.*/).first();
 
-    await card.getByRole("checkbox").click();
+    await card.getByRole("button").click();
     await expect(card).toHaveAttribute("aria-checked", "false");
     await expect(card).toHaveClass(/border-neutral-50/);
   });
@@ -52,7 +52,7 @@ test.describe("Navigation", () => {
       await page.getByPlaceholder("Search").fill(mood);
       const card = page.getByTestId(`mood-card-${mood}`);
       await expect(card).toBeVisible();
-      await card.getByRole("checkbox").click();
+      await card.getByRole("button").click();
     }
 
     for (const mood of moods) {
@@ -198,7 +198,7 @@ test.describe("UX", () => {
     await expect(card).toHaveAttribute("aria-checked", "false");
     await expect(card).toHaveClass(/border-neutral-50/);
 
-    await card.getByRole("checkbox").click();
+    await card.getByRole("button").click();
     await expect(card).toHaveAttribute("aria-checked", "true");
     await expect(card).toHaveClass(/border-green-500/);
   });

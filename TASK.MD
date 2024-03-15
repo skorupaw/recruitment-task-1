@@ -350,7 +350,7 @@ Send a mutation with the ids of selected moods `saveCurrentMoods(moodsIds: [ID!]
 ## Unit Tests
 
 
-- [ ] Add unit tests. You can find some examples in the [`Mood.spec.tsx`](./frontend/src/components/Mood.spec.tsx) and [`App.spec.tsx`](./frontend/src/App.spec.tsx) files. The setup for the [msw](https://mswjs.io/) and [`@testing-library`](https://testing-library.com) can be found in [`/test-utils`](./frontend/src/test-utils/) and [`setup-tests.ts`](./frontend/setup-tests.ts). Once again, if you prefer, you can change the unit tests setup, matchers and runners. This one is configured to run with [`vitest`](https://vitest.dev/)
+- [ ] Add unit tests. You can find some examples in the [`Mood.spec.tsx`](./frontend/src/components/Mood.spec.tsx) and [`App.spec.tsx`](./frontend/src/App.spec.tsx) files. The setup for the [`msw`](https://mswjs.io/) and [`@testing-library`](https://testing-library.com) can be found in [`/test-utils`](./frontend/src/test-utils/) and [`setup-tests.ts`](./frontend/setup-tests.ts). Once again, if you prefer, you can change the unit tests setup, matchers and runners. This one is configured to run with [`vitest`](https://vitest.dev/)
 
 You can run unit-tests via this command:
 ```cmd
