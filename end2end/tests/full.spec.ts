@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Cards", () => {
-  test.skip("loading skeleton are displayed when fetching mood cards", async ({
+  test("loading skeleton are displayed when fetching mood cards", async ({
     context,
   }) => {
     const page = await context.newPage();
