@@ -2,19 +2,17 @@ import { graphql, http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
 
 const MOOD = {
-  mood: {
-    id: 1,
-    title: "Happiness",
-    emoji: "😄",
-    description: "A state of being happy or experiencing pleasure.",
-    word: {
-      partOfSpeech: "Noun",
-      definitions: [
-        "The state of being happy.",
-        "A feeling of pleasure or contentment.",
-      ],
-      pronunciation: "/ˈhæp.i.nəs/",
-    },
+  id: 1,
+  title: "Happiness",
+  emoji: "😄",
+  description: "A state of being happy or experiencing pleasure.",
+  word: {
+    partOfSpeech: "Noun",
+    definitions: [
+      "The state of being happy.",
+      "A feeling of pleasure or contentment.",
+    ],
+    pronunciation: "/ˈhæp.i.nəs/",
   },
 };
 
@@ -27,7 +25,7 @@ const handlers = [
   }),
   graphql.query("Mood", () => {
     return HttpResponse.json({
-      data: MOOD,
+      data: { mood: MOOD },
     });
   }),
 ];
