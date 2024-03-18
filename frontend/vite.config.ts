@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     server: {
       proxy: {
-        "/graphql": `http://127.0.0.1:${env.VITE_GRAPHQL_PORT || 4000}/`,
+        "/graphql": `http://127.0.0.1:${env.VITE_GRAPHQL_PORT || 4001}/`,
         "/api": `http://127.0.0.1:${env.VITE_REST_PORT || 4000}/`,
       },
     },

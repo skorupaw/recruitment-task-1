@@ -66,7 +66,7 @@ Types for the REST response can be found in [./frontend/src/types/rest.ts](./fro
 <summary><strong>GraphQL API:</strong></summary>
 <p></p>
 
-> You can access GraphQL sandbox navigating to: http://localhost:4000
+> You can access GraphQL sandbox navigating to: http://localhost:4001
 
 **Request:**
 

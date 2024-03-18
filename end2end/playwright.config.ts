@@ -1,10 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
+import dotenv from "dotenv";
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
+dotenv.config({ path: "../.env" });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -81,14 +78,14 @@ export default defineConfig({
     },
     {
       command: "npm run --prefix ../ serve:graphql -w backend",
-      url: "http://localhost:4001/graphql",
+      url: `http://localhost:${process.env.VITE_GRAPHQL_PORT || 4001}/graphql`,
       reuseExistingServer: !process.env.CI,
       stdout: "ignore",
       stderr: "pipe",
     },
     {
       command: "npm run --prefix ../ serve:rest -w backend",
-      url: "http://localhost:4000/api/moods",
+      url: `http://localhost:${process.env.VITE_REST_PORT || 4000}/api/moods`,
       reuseExistingServer: !process.env.CI,
       stdout: "ignore",
       stderr: "pipe",
