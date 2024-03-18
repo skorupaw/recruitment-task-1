@@ -9,6 +9,7 @@
     "end2end"
   ],
   "scripts": {
+    "postinstall": "npx playwright install --with-deps chromium",
     "dev": "npm run dev -w frontend",
     "serve:rest": "npm run serve:rest -w backend",
     "serve:graphql": "npm run serve:graphql -w backend",
