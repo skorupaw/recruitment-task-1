@@ -2,17 +2,6 @@
 
 The following task is a great opportunity to show us your experience, style, and the way you work - and impress us with your skills and knowledge. Familiarize yourself with the information below, set up the development environment, and once everything is up and running, click on the link labeled "Start Assignment" at the bottom or navigate to `TASK.md`.
 
-## Environment requirements: 
-
-```json
-{
-  "node": ">= 18.0 < 18.19",
-  "npm": ">= 9.5"
-}
-```
-
-In addition to running the application locally, this repository supports `devcontainers`. If you are experiencing some problems with your local node installation, using devcontainers should give you much more reliable results.
-
 ## Description
 The application should display a list of moods provided by the API and allow a user to search, paginate, and submit their current mood. The current mood can consist of max three emotions, e.g. "Happy", "Excited", "Proud".
 
@@ -24,6 +13,26 @@ The application should display a list of moods provided by the API and allow a u
   - Modifying the [`App.tsx`](./frontend/src/App.tsx) 
   - Creating and modifying files in [`/components`](./frontend/src/components/), [`/src`](./frontend/src/) folders.
 - We advise you to do the tasks in order, most of them build upon each other.
+
+## Delivery
+
+1. Create a branch named `solution`.
+2. Complete the tasks outlined in the [`TASK.md`](./TASK.MD) file on the `solution` branch.
+3. Create a PR: `master` <- `solution`.
+4. Request a review from [@skorupaw](https://github.com/skorupaw).
+
+> **It's super important to follow the instructions exactly for completing the task. If you stray, your work might not get checked!**
+
+## Environment requirements: 
+
+```json
+{
+  "node": ">= 18.0 < 18.19",
+  "npm": ">= 9.5"
+}
+```
+
+In addition to running the application locally, this repository supports `devcontainers`. If you are experiencing some problems with your local node installation, using devcontainers should give you much more reliable results.
 
 ## Before you start
 
@@ -76,12 +85,3 @@ npm run serve:graphql
 
 
 <p align="center"><a href="./TASK.MD"><strong>Start assignment</strong></a></p>
-
-## Delivery
-
-You can use GitHub, BitBucket, GitLab, or anything you want, but you need to maintain your repository as private. **Do not share our task or your solution in any way such as a public repo.**
-Compress the task in a .bundle file. We want to have the entire git history. The easiest way is to run:
-```cmd
-git bundle create your-name.bundle --all
-```
-Be sure to use `.gitignore` and not include, for example, `node_modules` inside your .bundle file.
