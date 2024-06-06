@@ -1,3 +1,4 @@
+- [ ] Unit tests
 
 - [ ] Task 01
 - [ ] Task 02
@@ -15,5 +16,3 @@
 - [ ] Task 14
 - [ ] Task 15
 - [ ] Task 16
-
-- [ ] Unit tests
