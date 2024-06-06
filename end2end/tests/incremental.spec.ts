@@ -15,7 +15,9 @@ test(
   async ({ page }) => {
     await page.goto("/");
 
-    await expect(page.getByLabel("loading").first()).toBeVisible();
+    for (let i = 0; i < 3; i += 1) {
+      await expect(page.getByLabel("loading").nth(i)).toBeVisible();
+    }
   },
 );
 
@@ -132,7 +134,7 @@ test(
 
 test(
   "ability to search for a given mood",
-  { tag: "@tag09" },
+  { tag: "@task09" },
   async ({ page }) => {
     await page.goto("/");
 
