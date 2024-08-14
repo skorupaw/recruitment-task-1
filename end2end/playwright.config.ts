@@ -25,9 +25,15 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
+
+    /* Save video of the failed test only on CI */
+    video: process.env.CI ? 'retain-on-failure' : 'off',
+
+    /* Timeout for each test */
+    timeout: 25 * 1000,
   },
   expect: {
-    timeout: 100 * 1000,
+    timeout: 25 * 1000,
   },
 
   /* Configure projects for major browsers */
