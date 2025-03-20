@@ -1,7 +1,10 @@
-export function Main({ children }: { children: React.ReactNode }) {
+import { memo } from "react";
+
+export const Main = memo<{ children: React.ReactNode }>(({ children }) => {
   return (
-    <div className="mb-64 flex w-full flex-wrap justify-center gap-3 py-4 lg:mb-0 lg:justify-start">
+    <main className="mb-32 grid w-full grid-cols-1 gap-4 py-4 lg:mb-0 lg:grid-cols-3">
       {children}
-    </div>
+    </main>
   );
-}
+});
+Main.displayName = "Main";

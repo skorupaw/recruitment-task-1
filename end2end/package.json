@@ -2,16 +2,18 @@
   "name": "end2end",
   "version": "1.0.0",
   "description": "",
-  "private": "true",
+  "type": "module",
   "scripts": {
-    "test": "npx playwright test",
-    "test:ui": "npx playwright test --ui",
-    "test:task": "npx playwright test -g",
-    "test:full": "npx playwright test full.spec"
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write ./tests",
+    "format:check": "prettier --check ./tests",
+    "test": "pnpm exec playwright test",
+    "test:ui": "pnpm exec playwright test --ui"
   },
   "devDependencies": {
-    "@playwright/test": "^1.42.1",
-    "@types/node": "^20.7.0",
-    "eslint-plugin-playwright": "^0.16.0"
+    "@playwright/test": "^1.51.0",
+    "@types/node": "^20.11.17",
+    "eslint-plugin-playwright": "^2.2.0"
   }
 }

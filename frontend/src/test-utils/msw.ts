@@ -20,8 +20,14 @@ const MOOD = {
  * Example handlers
  */
 const handlers = [
-  http.get("http://localhost:5173/api/moods/1", () => {
+  http.get("/api/moods/1", () => {
     return HttpResponse.json(MOOD);
+  }),
+  http.get("/api/moods", () => {
+    return HttpResponse.json({
+      moods: [MOOD],
+      pagination: { count: 1, skip: 0, limit: 3 },
+    });
   }),
   graphql.query("Mood", () => {
     return HttpResponse.json({

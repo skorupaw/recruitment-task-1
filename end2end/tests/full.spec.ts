@@ -25,18 +25,41 @@ test.describe("Cards", () => {
     const cards = await page.getByTestId(/mood-card-.*/).all();
 
     for (const card of cards) {
-      await card.getByRole("checkbox").click();
+      await card.click();
       await expect(card).toHaveAttribute("aria-checked", "true");
-      await expect(card).toHaveClass(/border-green-500/);
     }
 
     await page.getByRole("button").filter({ hasText: "Next page" }).click();
 
     const card = page.getByTestId(/mood-card-.*/).first();
 
-    await card.getByRole("checkbox").click();
+    await card.click();
     await expect(card).toHaveAttribute("aria-checked", "false");
-    await expect(card).toHaveClass(/border-neutral-50/);
+  });
+
+  test("error message is displayed when user tries to select more than 3 moods", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    await expect(page.getByTestId(/mood-card-.*/).first()).toBeVisible();
+    const cards = await page.getByTestId(/mood-card-.*/).all();
+
+    for (const card of cards) {
+      await card.click();
+      await expect(card).toHaveAttribute("aria-checked", "true");
+    }
+
+    await page.getByRole("button").filter({ hasText: "Next page" }).click();
+
+    await page
+      .getByTestId(/mood-card-.*/)
+      .first()
+      .click();
+
+    await expect(
+      page.getByText(/You can only select up to 3 moods/i),
+    ).toBeVisible();
   });
 });
 
@@ -44,9 +67,41 @@ test.describe("Navigation", () => {
   test("ability to search given mood", async ({ page }) => {
     await page.goto("/");
 
+    await page.getByPlaceholder("Search").fill("Happiness");
+    const card = page.getByTestId(`mood-card-Happiness`);
+    await expect(card).toBeVisible();
+  });
+
+  test("search query is included in the url", async ({ page }) => {
+    await page.goto("/");
+
+    await page.getByPlaceholder("Search").fill("Happiness");
+
+    await expect(page).toHaveURL(/.*\/\?search=Happiness/);
+  });
+
+  test("page number is included in the url", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(
+      page.getByRole("button").filter({ hasText: "Next page" }),
+    ).toBeEnabled();
+
     await page.getByRole("button").filter({ hasText: "Next page" }).click();
 
-    const moods = ["Love", "Serenity", "Excitement"];
+    await expect(page).toHaveURL(/.*\/\?page=1/);
+
+    await page.getByRole("button").filter({ hasText: "Previous page" }).click();
+
+    await expect(page).toHaveURL(/.*\/\?page=0/);
+  });
+
+  test("selection state is preserved when navigating between pages", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const moods = ["Happiness", "Sadness"];
 
     for (const mood of moods) {
       await page.getByPlaceholder("Search").fill(mood);
@@ -55,26 +110,41 @@ test.describe("Navigation", () => {
       await card.getByRole("checkbox").click();
     }
 
+    await page.getByRole("button").filter({ hasText: /clear/i }).click();
+
     for (const mood of moods) {
-      await page.getByPlaceholder("Search").fill(mood);
       const card = page.getByTestId(`mood-card-${mood}`);
+      await expect(card).toBeVisible();
       await expect(card).toHaveAttribute("aria-checked", "true");
-      await expect(card).toHaveClass(/border-green-500/);
     }
   });
 
-  test("search should be debounced", async ({ page }) => {
+  test("search query is preserved when navigating between pages", async ({
+    page,
+  }) => {
     await page.goto("/");
+    await page.getByPlaceholder("Search").fill("a");
 
-    const moods = ["Love", "Serenity", "Excitement"];
-    for (const mood of moods) {
-      await page.getByPlaceholder("Search").fill(mood);
-    }
+    await page.getByRole("button").filter({ hasText: "Next page" }).click();
 
-    // eslint-disable-next-line playwright/no-wait-for-timeout
-    await page.waitForTimeout(500);
-    const card = page.getByTestId(`mood-card-${moods[moods.length - 1]}`);
-    await expect(card).toBeVisible();
+    await expect(page).toHaveURL(/.*\/\?search=a&page=1/);
+  });
+
+  test("search query is preserved when user clicks on 'Learn more'", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.getByPlaceholder("Search").fill("a");
+
+    await page.getByRole("button").filter({ hasText: "Next page" }).click();
+
+    await page.getByTestId("mood-card-Fear").getByRole("link").click();
+
+    await expect(page).toHaveURL(/.*\/mood\/5\?search=a&page=1/);
+
+    await page.getByRole("button").filter({ hasText: "Close" }).click();
+
+    await expect(page).toHaveURL(/.*\?search=a&page=1/);
   });
 
   test("message is displayed when no search result have been found", async ({
@@ -84,38 +154,29 @@ test.describe("Navigation", () => {
 
     await page.getByPlaceholder("Search").fill("xxxxxxx");
 
-    await expect(page.getByText(/no moods .* found!/i)).toBeVisible();
+    await expect(page.getByText(/no moods found/i)).toBeVisible();
   });
 
   test("navigation buttons are disabled when user reaches first and last page", async ({
     page,
   }) => {
-    test.setTimeout(1 * 1000 * 60 * 2);
     await page.goto("/");
 
     await expect(
       page.getByRole("button").filter({ hasText: "Previous page" }),
-    ).toBeHidden();
+    ).toBeDisabled();
     await expect(
       page.getByRole("button").filter({ hasText: "Next page" }),
-    ).toBeVisible();
+    ).toBeEnabled();
 
-    for (let i = 0; i < Math.floor(39 / 3) - 1; i++) {
-      await expect(
-        page
-          .getByTestId(/mood-card-.*/)
-          .filter({ has: page.getByRole("heading") }),
-      ).toHaveCount(3);
-      await page.getByRole("button").filter({ hasText: "Next page" }).click();
-    }
-
-    await expect(
-      page.getByRole("button").filter({ hasText: "Next page" }),
-    ).toBeHidden();
+    await page.goto("/?page=12");
 
     await expect(
       page.getByRole("button").filter({ hasText: "Previous page" }),
-    ).toBeVisible();
+    ).toBeEnabled();
+    await expect(
+      page.getByRole("button").filter({ hasText: "Next page" }),
+    ).toBeDisabled();
   });
 });
 
@@ -125,51 +186,50 @@ test.describe("Details", () => {
   }) => {
     await page.goto("/");
 
-    await page.getByTestId("mood-card-Happiness").click();
+    await page.getByTestId("mood-card-Happiness").getByRole("link").click();
 
     await expect(page.getByLabel("loading")).toBeVisible();
   });
+
   test("additional mood information is displayed when clicking on the mood", async ({
     page,
   }) => {
     await page.goto("/");
 
-    await page.getByTestId("mood-card-Happiness").click();
+    await page.getByTestId("mood-card-Happiness").getByRole("link").click();
 
     await expect(
-      page.locator("section").getByRole("heading", { name: /Happiness/ }),
+      page.getByRole("heading", { name: /Happiness/ }),
     ).toBeVisible();
+
     await expect(page).toHaveURL(/.*\/mood\/1/);
 
-    await page.locator("section").getByRole("button").click();
+    await page.getByRole("button").filter({ hasText: "Close" }).click();
 
-    await expect(
-      page.locator("section").getByRole("heading", { name: /Happiness/ }),
-    ).toBeHidden();
+    await expect(page.getByRole("heading", { name: /Happiness/ })).toBeHidden();
+
     await expect(page).toHaveURL("/");
   });
 
-  test("only one state update is performed when clicking on the mood cards", async ({
-    page,
-  }) => {
+  test("detail card states open when navigating", async ({ page }) => {
     await page.goto("/");
 
-    await expect(page.getByTestId(/mood-card-.*/).first()).toBeVisible();
-
-    const cards = ["Happiness", "Sadness"];
-
-    for (let i = 0; i < 3; i += 1) {
-      for (const card of cards) {
-        await page.getByTestId(`mood-card-${card}`).click();
-      }
-    }
-
-    // eslint-disable-next-line playwright/no-wait-for-timeout
-    await page.waitForTimeout(500);
-    await page.getByTestId(`mood-card-Anger`).click();
+    await page.getByTestId("mood-card-Happiness").getByRole("link").click();
 
     await expect(
-      page.locator("section").getByRole("heading", { name: /Anger/ }),
+      page.getByRole("heading", { name: /Happiness/ }),
+    ).toBeVisible();
+
+    await page.getByPlaceholder("Search").fill("a");
+
+    await expect(
+      page.getByRole("heading", { name: /Happiness/ }),
+    ).toBeVisible();
+
+    await page.getByRole("button").filter({ hasText: "Next page" }).click();
+
+    await expect(
+      page.getByRole("heading", { name: /Happiness/ }),
     ).toBeVisible();
   });
 });
@@ -191,19 +251,48 @@ test.describe("UX", () => {
     await expect(page.getByText("Count: 2")).toBeVisible();
   });
 
-  test("mood card is selected only when select button is clicked", async ({
-    page,
-  }) => {
+  test("mood card is selected when clicking on the card", async ({ page }) => {
     await page.goto("/");
 
     const card = page.getByTestId("mood-card-Happiness");
 
-    card.click();
-    await expect(card).toHaveAttribute("aria-checked", "false");
-    await expect(card).toHaveClass(/border-neutral-50/);
-
-    await card.getByRole("checkbox").click();
+    await card.click();
     await expect(card).toHaveAttribute("aria-checked", "true");
-    await expect(card).toHaveClass(/border-green-500/);
+
+    await expect(card.getByRole("checkbox")).toHaveAttribute(
+      "aria-checked",
+      "true",
+    );
+  });
+
+  test("search should be debounced", async ({ page }) => {
+    await page.goto("/");
+
+    const moods = ["Love", "Serenity", "Excitement"];
+    for (const mood of moods) {
+      await page.getByPlaceholder("Search").fill(mood);
+    }
+
+    // eslint-disable-next-line playwright/no-wait-for-timeout
+    await page.waitForTimeout(500);
+    const card = page.getByTestId(`mood-card-${moods[moods.length - 1]}`);
+    await expect(card).toBeVisible();
+  });
+});
+
+test.describe("Save", () => {
+  test("confirmation dialog is displayed when user saves the selected moods", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    const cards = await page.getByTestId(/mood-card-.*/).all();
+    for (const card of cards) {
+      await card.click();
+    }
+
+    await page.getByRole("button", { name: "Save" }).click();
+
+    await expect(page.getByRole("dialog")).toBeVisible();
   });
 });

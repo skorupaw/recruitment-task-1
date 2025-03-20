@@ -1,6 +1,7 @@
-import { Route, Routes } from "react-router-dom";
-import { render, screen } from "../test-utils/testing-library";
+import { Route, Routes } from "react-router";
+import { render, screen } from "@/test-utils/testing-library";
 import Mood from "./Mood";
+import { describe, expect, test } from "vitest";
 
 describe("Mood", () => {
   test("mood details are being rendered", async () => {

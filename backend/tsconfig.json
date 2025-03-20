@@ -1,18 +1,13 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
     "target": "ESNext",
+    "module": "NodeNext",
     "strict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
+    "verbatimModuleSyntax": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "."
-  },
-  "include": ["./*.ts"],
-  "exclude": ["node_modules"],
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
+    "skipLibCheck": true,
+    "types": ["node"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx"
   }
 }

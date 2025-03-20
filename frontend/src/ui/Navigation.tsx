@@ -1,7 +1,6 @@
-import {
-  ArrowLongLeftIcon,
-  ArrowLongRightIcon,
-} from "@heroicons/react/24/solid";
+import { Button } from "@/ui/primitives/button";
+import { MoveLeft, MoveRight } from "lucide-react";
+import { useCallback, useMemo } from "react";
 
 export type NavigationProps = {
   onNext?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -10,47 +9,51 @@ export type NavigationProps = {
   isNextDisabled?: boolean;
   isPreviousHidden?: boolean;
   isNextHidden?: boolean;
-  count?: number;
 };
 
 export function Navigation({
   isNextDisabled,
   isPreviousDisabled,
-  isNextHidden,
-  isPreviousHidden,
-  count,
   onNext = () => null,
   onPrevious = () => null,
 }: NavigationProps) {
+  const handleNext = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      onNext(event);
+    },
+    [onNext],
+  );
+
+  const handlePrevious = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      onPrevious(event);
+    },
+    [onPrevious],
+  );
+
+  const MemoizedMoveLeft = useMemo(() => <MoveLeft />, []);
+  const MemoizedMoveRight = useMemo(() => <MoveRight />, []);
+
   return (
-    <div className="flex w-full justify-between items-center py-4">
-      {count && count >= 0 ? (
-        <p className="text-neutral-500 text-sm font-semibold">Count: {count}</p>
-      ) : (
-        <div />
-      )}
-      <div className="flex gap-2 justify-center">
-        {!isPreviousHidden && (
-          <button
-            className="text-lg hover:bg-neutral-100 p-3 rounded-full group disabled:bg-transparent"
-            onClick={onPrevious}
-            disabled={isPreviousDisabled}
-          >
-            <ArrowLongLeftIcon className="w-5 h-5 group-disabled:text-neutral-300" />
-            <span className="hidden">Previous page</span>
-          </button>
-        )}
-        {!isNextHidden && (
-          <button
-            className="text-lg hover:bg-neutral-100 p-3 rounded-full group disabled:bg-transparent"
-            onClick={onNext}
-            disabled={isNextDisabled}
-          >
-            <ArrowLongRightIcon className="w-5 h-5 group-disabled:text-neutral-300" />
-            <span className="hidden">Next page</span>
-          </button>
-        )}
-      </div>
+    <div className="flex justify-center gap-2">
+      <Button
+        onClick={handlePrevious}
+        disabled={isPreviousDisabled}
+        variant="ghost"
+        size="icon"
+      >
+        {MemoizedMoveLeft}
+        <span className="sr-only">Previous page</span>
+      </Button>
+      <Button
+        onClick={handleNext}
+        disabled={isNextDisabled}
+        variant="ghost"
+        size="icon"
+      >
+        {MemoizedMoveRight}
+        <span className="sr-only">Next page</span>
+      </Button>
     </div>
   );
 }

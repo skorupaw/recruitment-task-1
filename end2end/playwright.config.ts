@@ -17,7 +17,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: process.env.CI ? "github" : "list",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -27,10 +27,7 @@ export default defineConfig({
     trace: "on-first-retry",
 
     /* Save video of the failed test only on CI */
-    video: process.env.CI ? 'retain-on-failure' : 'off',
-
-    /* Timeout for each test */
-    timeout: 25 * 1000,
+    video: process.env.CI ? "retain-on-failure" : "off",
   },
   expect: {
     timeout: 25 * 1000,
@@ -42,56 +39,20 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
-    // {
-    //   name: "firefox",
-    //   use: { ...devices["Desktop Firefox"] },
-    // },
-
-    // {
-    //   name: "webkit",
-    //   use: { ...devices["Desktop Safari"] },
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
   ],
 
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: "npm run --prefix ../ dev -w frontend",
+      command: "pnpm --filter frontend dev",
       url: "http://localhost:5173",
       reuseExistingServer: !process.env.CI,
       stdout: "ignore",
       stderr: "pipe",
     },
     {
-      command: "npm run --prefix ../ serve:graphql -w backend",
-      url: `http://localhost:${process.env.VITE_GRAPHQL_PORT || 4001}/graphql`,
-      reuseExistingServer: !process.env.CI,
-      stdout: "ignore",
-      stderr: "pipe",
-    },
-    {
-      command: "npm run --prefix ../ serve:rest -w backend",
-      url: `http://localhost:${process.env.VITE_REST_PORT || 4000}/api/moods`,
+      command: "pnpm --filter backend dev",
+      url: "http://localhost:3000",
       reuseExistingServer: !process.env.CI,
       stdout: "ignore",
       stderr: "pipe",

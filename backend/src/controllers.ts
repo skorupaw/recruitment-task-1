@@ -5,14 +5,14 @@ type Word = {
 };
 
 type Mood = {
-  id: number;
+  id: string;
   title: string;
   emoji: string;
   description: string;
   word: Word;
 };
 
-type DataEntry = Omit<Mood, "word"> & Word;
+type DataEntry = Omit<Mood, "word" | "id"> & Word & { id: number };
 
 type Pagination = {
   skip: number;
@@ -21,12 +21,14 @@ type Pagination = {
 };
 
 const entryToMood = ({
+  id,
   partOfSpeech,
   definitions,
   pronunciation,
   ...rest
 }: DataEntry): Mood => ({
   ...rest,
+  id: `${id}`,
   word: { partOfSpeech, definitions, pronunciation },
 });
 
@@ -43,7 +45,7 @@ export const moods =
   }): { moods: Mood[]; pagination: Pagination } => {
     const filteredEntries = search
       ? entries.filter((mood) =>
-          mood.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+          mood.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()),
         )
       : entries;
 

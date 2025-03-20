@@ -1,22 +1,16 @@
 {
-  "name": "frontend-task",
+  "name": "recruitment-task-1",
   "version": "0.0.0",
   "description": "",
   "private": "true",
-  "workspaces": [
-    "frontend",
-    "backend",
-    "end2end"
-  ],
   "scripts": {
-    "postinstall": "npx playwright install --with-deps chromium",
-    "dev": "npm run dev -w frontend",
-    "serve:rest": "npm run serve:rest -w backend",
-    "serve:graphql": "npm run serve:graphql -w backend",
-    "test": "npm run test -w frontend",
-    "test:ui": "npm run test:ui -w end2end",
-    "test:full": "npm run test:full -w end2end",
-    "test:task": "npm run test:task -w end2end"
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "format:check": "turbo run format:check",
+    "type-check": "turbo run type-check",
+    "test": "pnpm --filter frontend test",
+    "test:e2e": "pnpm --filter end2end test"
   },
   "repository": {
     "type": "git",
@@ -26,8 +20,7 @@
   "license": "ISC",
   "homepage": "https://github.com/skorupaw/recruitment-task-1#readme",
   "engines": {
-    "node": ">=18.0 <18.19",
-    "npm": ">=9.5.0"
+    "node": ">=20"
   },
   "overrides": {
     "vite": {
@@ -35,10 +28,14 @@
     }
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "eslint": "^8.50.0",
+    "@eslint/js": "^9.21.0",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.22.0",
+    "globals": "^15.15.0",
     "prettier": "^3.0.3",
-    "typescript": "5.2.2"
-  }
+    "turbo": "^2.4.4",
+    "typescript": "5.7.2",
+    "typescript-eslint": "^8.26.1"
+  },
+  "packageManager": "pnpm@10.6.5+sha512.cdf928fca20832cd59ec53826492b7dc25dc524d4370b6b4adbf65803d32efaa6c1c88147c0ae4e8d579a6c9eec715757b50d4fa35eea179d868eada4ed043af"
 }

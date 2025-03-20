@@ -1,11 +1,9 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import App from "./App";
-import {
-  RouteObject,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { RouteObject, RouterProvider, createBrowserRouter } from "react-router";
 import Mood from "./components/Mood";
+import { useMemo } from "react";
+import { Toaster } from "@/ui";
 
 export const apolloClient = () => {
   return new ApolloClient({
@@ -27,10 +25,19 @@ const routes: RouteObject[] = [
   },
 ];
 
-export default function Root() {
-  return (
-    <ApolloProvider client={apolloClient()}>
-      <RouterProvider router={createBrowserRouter(routes)} />
-    </ApolloProvider>
+const router = createBrowserRouter(routes);
+const client = apolloClient();
+
+export function Root() {
+  return useMemo(
+    () => (
+      <ApolloProvider client={client}>
+        <RouterProvider router={router} />
+        <Toaster />
+      </ApolloProvider>
+    ),
+    [],
   );
 }
+
+export default Root;
