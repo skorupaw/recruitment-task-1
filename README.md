@@ -58,13 +58,15 @@ Frontend application should be running at http://localhost:5173 and backend serv
 
 - We prefer a more straightforward solution relying on pure `react` than one depending on many external tools and libraries.
 
-- You can use [`NOTES.md`](./NOTES.md) to write down your thoughts that you may have had while completing the task. You can present your point of view or explain your thought process.
+- **Please add at least two or three unit tests. Testing is pretty important for us, and in general, thinking about testing should help you provide more quality code.**
+
+- If you see any improvements that could make the app better, feel free to implement them! Just make sure they don’t impact end-to-end tests, and if they do, please adjust them accordingly.
 
 - Please provide a copy of the checklist from [`CHECKLIST.MD`](./CHECKLIST.md) and mark the implemented points.
 
-- Please make sure that there are no console errors or bugs. It's better if some point is not delivered than if the implementation is buggy or incomplete.
+- You can use [`NOTES.md`](./NOTES.md) to write down your thoughts that you may have had while completing the task. You can present your point of view or explain your thought process.
 
-- If you see any improvements that could make the app better, feel free to implement them! Just make sure they don’t impact end-to-end tests, and if they do, please adjust them accordingly.
+- Please make sure that there are no console errors or bugs. It's better if some point is not delivered than if the implementation is buggy or incomplete.
 
 <p align="center"><a href="./TASK.MD"><strong>Start assignment</strong></a></p>
 
