@@ -22,7 +22,8 @@ The application should display a list of moods provided by the API and allow a u
 3. Create a PR: `master` <- `solution`.
 4. Request a review from [@skorupaw](https://github.com/skorupaw).
 
-> **It's super important to follow the instructions exactly for completing the task. If you stray, your work might not get checked!**
+> [!IMPORTANT]  
+> It's super important to follow the instructions exactly for completing the task. If you stray, your work might not get checked!
 
 ## Environment requirements:
 
