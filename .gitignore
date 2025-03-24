@@ -32,3 +32,4 @@ playwright/.cache/
 
 # Turbo
 .turbo
+.patches
