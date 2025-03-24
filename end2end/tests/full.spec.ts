@@ -76,6 +76,10 @@ test.describe("Navigation", () => {
 
     await page.getByPlaceholder("Search").fill("Happiness");
 
+    await page.waitForURL((url) => {
+      return !!url.searchParams.get("search");
+    });
+
     expect(new URL(page.url()).searchParams.get("search")).toBe("Happiness");
   });
 
@@ -126,9 +130,13 @@ test.describe("Navigation", () => {
 
     await page.getByRole("button").filter({ hasText: "Next page" }).click();
 
+    await page.waitForURL((url) => {
+      return !!url.searchParams.get("search") && !!url.searchParams.get("page");
+    });
+
     const url = new URL(page.url());
 
-    expect(url.searchParams.get("page")).toBe("0");
+    expect(url.searchParams.get("page")).toBe("1");
     expect(url.searchParams.get("search")).toBe("a");
   });
 
@@ -146,9 +154,13 @@ test.describe("Navigation", () => {
 
     await page.getByRole("button").filter({ hasText: "Close" }).click();
 
+    await page.waitForURL((url) => {
+      return !!url.searchParams.get("search") && !!url.searchParams.get("page");
+    });
+
     const url = new URL(page.url());
 
-    expect(url.searchParams.get("page")).toBe("0");
+    expect(url.searchParams.get("page")).toBe("1");
     expect(url.searchParams.get("search")).toBe("a");
   });
 
