@@ -60,6 +60,8 @@ Frontend application should be running at http://localhost:5173 and backend serv
 
 - **Please add at least two or three unit tests. Testing is pretty important for us, and in general, thinking about testing should help you provide more quality code.**
 
+- You can choose the backend for your application — we accept solutions using either REST or GraphQL.
+
 - If you see any improvements that could make the app better, feel free to implement them! Just make sure they don’t impact end-to-end tests, and if they do, please adjust them accordingly.
 
 - Please provide a copy of the checklist from [`CHECKLIST.MD`](./CHECKLIST.md) and mark the implemented points.
