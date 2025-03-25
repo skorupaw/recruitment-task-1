@@ -1,4 +1,7 @@
 packages:
-  - "frontend/**"
-  - "backend/**"
-  - "end2end/**"
+  - frontend/**
+  - backend/**
+  - end2end/**
+onlyBuiltDependencies:
+  - esbuild
+  - msw
