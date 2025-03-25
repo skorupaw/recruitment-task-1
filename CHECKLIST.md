@@ -1,18 +1,18 @@
-- [ ] Unit tests
+- [x] Unit tests
 
-- [ ] Task 01
-- [ ] Task 02
-- [ ] Task 03
-- [ ] Task 04
-- [ ] Task 05
-- [ ] Task 06
-- [ ] Task 07
-- [ ] Task 08
-- [ ] Task 09
-- [ ] Task 10
-- [ ] Task 11
-- [ ] Task 12
-- [ ] Task 13
-- [ ] Task 14
-- [ ] Task 15
-- [ ] Task 16
+- [x] Task 01
+- [x] Task 02
+- [x] Task 03
+- [x] Task 04
+- [x] Task 05
+- [x] Task 06
+- [x] Task 07
+- [x] Task 08
+- [x] Task 09
+- [x] Task 10
+- [x] Task 11
+- [x] Task 12
+- [x] Task 13
+- [x] Task 14
+- [x] Task 15
+- [x] Task 16
