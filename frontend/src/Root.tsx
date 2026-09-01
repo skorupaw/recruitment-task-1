@@ -1,42 +1,21 @@
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import App from "./App";
-import { RouteObject, RouterProvider, createBrowserRouter } from "react-router";
-import Mood from "./components/Mood";
-import { useMemo } from "react";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
 import { Toaster } from "@/ui";
 
-export const apolloClient = () => {
-  return new ApolloClient({
-    uri: "http://localhost:5173/graphql",
-    cache: new InMemoryCache(),
-  });
-};
+export const router = createRouter({ routeTree });
 
-const routes: RouteObject[] = [
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/mood/:moodId",
-        element: <Mood />,
-      },
-    ],
-  },
-];
-
-const router = createBrowserRouter(routes);
-const client = apolloClient();
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 export function Root() {
-  return useMemo(
-    () => (
-      <ApolloProvider client={client}>
-        <RouterProvider router={router} />
-        <Toaster />
-      </ApolloProvider>
-    ),
-    [],
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Toaster />
+    </>
   );
 }
 

@@ -1,7 +1,6 @@
-import { useParams } from "react-router";
-
 export function MoodDetails() {
-  const { moodId } = useParams();
+  // The mood id path param is available via:
+  // const { moodId } = useParams({ from: "/mood/$moodId" });
 
   return <></>;
 }

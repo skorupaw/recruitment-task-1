@@ -1,8 +1,5 @@
 export function Moods() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }
 
 export default Moods;

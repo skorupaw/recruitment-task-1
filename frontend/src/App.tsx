@@ -9,7 +9,7 @@ import {
   MoodSaveSuccessModal,
 } from "@/ui";
 import Moods from "@/components/Moods";
-import { Outlet } from "react-router";
+import { Outlet } from "@tanstack/react-router";
 
 export default function App() {
   return (
