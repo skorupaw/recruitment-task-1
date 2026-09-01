@@ -6,7 +6,6 @@
     "verbatimModuleSyntax": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "types": ["node"],
-    "baseUrl": "."
+    "types": ["node"]
   }
 }

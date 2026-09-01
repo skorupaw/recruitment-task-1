@@ -2,6 +2,6 @@ packages:
   - frontend/**
   - backend/**
   - end2end/**
-onlyBuiltDependencies:
-  - esbuild
-  - msw
+allowBuilds:
+  esbuild: true
+  msw: true

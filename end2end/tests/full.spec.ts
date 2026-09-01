@@ -1,9 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Cards", () => {
-  test("loading skeleton are displayed when fetching mood cards", async ({
-    page,
-  }) => {
+  test("loading skeleton are displayed when fetching mood cards", async ({ page }) => {
     await page.goto("/");
 
     for (let i = 0; i < 3; i += 1) {
@@ -56,9 +54,7 @@ test.describe("Cards", () => {
       .first()
       .click();
 
-    await expect(
-      page.getByText(/You can only select up to 3 moods/i),
-    ).toBeVisible();
+    await expect(page.getByText(/You can only select up to 3 moods/i)).toBeVisible();
   });
 });
 
@@ -86,9 +82,7 @@ test.describe("Navigation", () => {
   test("page number is included in the url", async ({ page }) => {
     await page.goto("/");
 
-    await expect(
-      page.getByRole("button").filter({ hasText: "Next page" }),
-    ).toBeEnabled();
+    await expect(page.getByRole("button").filter({ hasText: "Next page" })).toBeEnabled();
 
     await page.getByRole("button").filter({ hasText: "Next page" }).click();
 
@@ -99,9 +93,7 @@ test.describe("Navigation", () => {
     expect(new URL(page.url()).searchParams.get("page")).toBe("0");
   });
 
-  test("selection state is preserved when navigating between pages", async ({
-    page,
-  }) => {
+  test("selection state is preserved when navigating between pages", async ({ page }) => {
     await page.goto("/");
 
     const moods = ["Happiness", "Sadness"];
@@ -122,9 +114,7 @@ test.describe("Navigation", () => {
     }
   });
 
-  test("search query is preserved when navigating between pages", async ({
-    page,
-  }) => {
+  test("search query is preserved when navigating between pages", async ({ page }) => {
     await page.goto("/");
     await page.getByPlaceholder("Search").fill("a");
 
@@ -140,9 +130,7 @@ test.describe("Navigation", () => {
     expect(url.searchParams.get("search")).toBe("a");
   });
 
-  test("search query is preserved when user clicks on 'Learn more'", async ({
-    page,
-  }) => {
+  test("search query is preserved when user clicks on 'Learn more'", async ({ page }) => {
     await page.goto("/");
     await page.getByPlaceholder("Search").fill("a");
 
@@ -164,9 +152,7 @@ test.describe("Navigation", () => {
     expect(url.searchParams.get("search")).toBe("a");
   });
 
-  test("message is displayed when no search result have been found", async ({
-    page,
-  }) => {
+  test("message is displayed when no search result have been found", async ({ page }) => {
     await page.goto("/");
 
     await page.getByPlaceholder("Search").fill("xxxxxxx");
@@ -179,28 +165,18 @@ test.describe("Navigation", () => {
   }) => {
     await page.goto("/");
 
-    await expect(
-      page.getByRole("button").filter({ hasText: "Previous page" }),
-    ).toBeDisabled();
-    await expect(
-      page.getByRole("button").filter({ hasText: "Next page" }),
-    ).toBeEnabled();
+    await expect(page.getByRole("button").filter({ hasText: "Previous page" })).toBeDisabled();
+    await expect(page.getByRole("button").filter({ hasText: "Next page" })).toBeEnabled();
 
     await page.goto("/?page=12");
 
-    await expect(
-      page.getByRole("button").filter({ hasText: "Previous page" }),
-    ).toBeEnabled();
-    await expect(
-      page.getByRole("button").filter({ hasText: "Next page" }),
-    ).toBeDisabled();
+    await expect(page.getByRole("button").filter({ hasText: "Previous page" })).toBeEnabled();
+    await expect(page.getByRole("button").filter({ hasText: "Next page" })).toBeDisabled();
   });
 });
 
 test.describe("Details", () => {
-  test("loading state is displayed when clicking on the mood card", async ({
-    page,
-  }) => {
+  test("loading state is displayed when clicking on the mood card", async ({ page }) => {
     await page.goto("/");
 
     await page.getByTestId("mood-card-Happiness").getByRole("link").click();
@@ -208,24 +184,18 @@ test.describe("Details", () => {
     await expect(page.getByLabel("loading")).toBeVisible();
   });
 
-  test("additional mood information is displayed when clicking on the mood", async ({
-    page,
-  }) => {
+  test("additional mood information is displayed when clicking on the mood", async ({ page }) => {
     await page.goto("/");
 
     await page.getByTestId("mood-card-Happiness").getByRole("link").click();
 
-    await expect(
-      page.getByRole("heading", { name: /Happiness/i }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Happiness/i })).toBeVisible();
 
     await expect(page).toHaveURL(/.*\/mood\/1.*/);
 
     await page.getByRole("button").filter({ hasText: "Close" }).click();
 
-    await expect(
-      page.getByRole("heading", { name: /Happiness/i }),
-    ).toBeHidden();
+    await expect(page.getByRole("heading", { name: /Happiness/i })).toBeHidden();
 
     await expect(page).not.toHaveURL(/.*\/mood\/1.*/);
   });
@@ -235,21 +205,15 @@ test.describe("Details", () => {
 
     await page.getByTestId("mood-card-Happiness").getByRole("link").click();
 
-    await expect(
-      page.getByRole("heading", { name: /Happiness/i }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Happiness/i })).toBeVisible();
 
     await page.getByPlaceholder("Search").fill("a");
 
-    await expect(
-      page.getByRole("heading", { name: /Happiness/i }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Happiness/i })).toBeVisible();
 
     await page.getByRole("button").filter({ hasText: "Next page" }).click();
 
-    await expect(
-      page.getByRole("heading", { name: /Happiness/i }),
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Happiness/i })).toBeVisible();
   });
 });
 
@@ -278,10 +242,7 @@ test.describe("UX", () => {
     await card.click();
     await expect(card).toHaveAttribute("aria-checked", "true");
 
-    await expect(card.getByRole("checkbox")).toHaveAttribute(
-      "aria-checked",
-      "true",
-    );
+    await expect(card.getByRole("checkbox")).toHaveAttribute("aria-checked", "true");
   });
 
   test("search should be debounced", async ({ page }) => {
@@ -292,7 +253,6 @@ test.describe("UX", () => {
       await page.getByPlaceholder("Search").fill(mood);
     }
 
-    // eslint-disable-next-line playwright/no-wait-for-timeout
     await page.waitForTimeout(500);
     const card = page.getByTestId(`mood-card-${moods[moods.length - 1]}`);
     await expect(card).toBeVisible();
@@ -300,9 +260,7 @@ test.describe("UX", () => {
 });
 
 test.describe("Save", () => {
-  test("confirmation dialog is displayed when user saves the selected moods", async ({
-    page,
-  }) => {
+  test("confirmation dialog is displayed when user saves the selected moods", async ({ page }) => {
     await page.goto("/");
 
     const cards = await page.getByTestId(/mood-card-.*/).all();

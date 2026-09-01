@@ -2,29 +2,10 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
-      "outputs": [
-        "dist/**"
-      ]
+      "outputs": ["dist/**"]
     },
     "type-check": {
-      "dependsOn": [
-        "^type-check"
-      ]
-    },
-    "format": {
-      "dependsOn": [
-        "^format"
-      ]
-    },
-    "format:check": {
-      "dependsOn": [
-        "^format:check"
-      ]
-    },
-    "lint": {
-      "dependsOn": [
-        "^lint"
-      ]
+      "dependsOn": ["^type-check"]
     },
     "dev": {
       "persistent": true,

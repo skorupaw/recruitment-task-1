@@ -4,16 +4,12 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "lint": "eslint .",
     "type-check": "tsc --noEmit",
-    "format": "prettier --write ./tests",
-    "format:check": "prettier --check ./tests",
     "test": "pnpm exec playwright test",
     "test:ui": "pnpm exec playwright test --ui"
   },
   "devDependencies": {
-    "@playwright/test": "^1.51.0",
-    "@types/node": "^20.11.17",
-    "eslint-plugin-playwright": "^2.2.0"
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.4.0"
   }
 }
