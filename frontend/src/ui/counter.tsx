@@ -1,6 +1,4 @@
-import { memo } from "react";
-
-export const Counter = memo(({ count }: { count?: number }) => {
+export const Counter = ({ count }: { count?: number }) => {
   return (
     <div className="flex items-center">
       {count && count >= 0 ? (
@@ -10,4 +8,4 @@ export const Counter = memo(({ count }: { count?: number }) => {
       )}
     </div>
   );
-});
+};

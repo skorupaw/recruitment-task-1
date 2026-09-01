@@ -2,33 +2,25 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/ui/primitives/button";
 import { Input } from "@/ui/primitives/input";
 import { X } from "lucide-react";
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 
-export function Search({
-  ref,
-  onChange,
-  className,
-  ...props
-}: React.ComponentProps<"input">) {
+export function Search({ ref, onChange, className, ...props }: React.ComponentProps<"input">) {
   const [query, setQuery] = useState(props.value);
 
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = e.target.value;
-      if (value !== query) {
-        setQuery(value);
-        onChange?.(e);
-      }
-    },
-    [query, onChange],
-  );
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value !== query) {
+      setQuery(value);
+      onChange?.(e);
+    }
+  };
 
-  const clearSearch = useCallback(() => {
+  const clearSearch = () => {
     setQuery("");
     onChange?.({
       target: { value: "" },
     } as React.ChangeEvent<HTMLInputElement>);
-  }, [onChange]);
+  };
 
   return (
     <div className="relative inline-flex w-full">

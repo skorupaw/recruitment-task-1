@@ -1,6 +1,6 @@
 import { Button } from "@/ui/primitives/button";
 import { Loader2 } from "lucide-react";
-import React, { useMemo } from "react";
+import React from "react";
 
 export type SaveButtonProps = {
   onSave: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -8,11 +8,9 @@ export type SaveButtonProps = {
 };
 
 export const SaveButton = ({ onSave, isSaving }: SaveButtonProps) => {
-  const loader = useMemo(() => <Loader2 className="animate-spin" />, []);
-
   return (
     <Button onClick={onSave} disabled={isSaving} variant="default">
-      {isSaving && loader}
+      {isSaving && <Loader2 className="animate-spin" />}
       Save
     </Button>
   );

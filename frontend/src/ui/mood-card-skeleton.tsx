@@ -1,20 +1,9 @@
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/ui/primitives/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/ui/primitives/card";
 import { Skeleton } from "@/ui/primitives/skeleton";
-import { memo } from "react";
 
-export const MoodCardSkeleton = memo(() => {
+export const MoodCardSkeleton = () => {
   return (
-    <Card
-      className="h-[258px] w-full"
-      aria-label="loading"
-      role="loading"
-      aria-live="polite"
-    >
+    <Card className="h-[258px] w-full" aria-label="loading" role="loading" aria-live="polite">
       <CardHeader className="flex flex-row items-center gap-4">
         <Skeleton className="flex size-12 flex-shrink-0 rounded-full" />
         <Skeleton className="h-4 w-full rounded-full" />
@@ -27,5 +16,4 @@ export const MoodCardSkeleton = memo(() => {
       </CardFooter>
     </Card>
   );
-});
-MoodCardSkeleton.displayName = "MoodCardSkeleton";
+};

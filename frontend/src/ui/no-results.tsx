@@ -1,6 +1,4 @@
-import { memo } from "react";
-
-export const NoResults = memo(() => {
+export const NoResults = () => {
   return (
     <div className="col-span-3 flex min-h-64 flex-col items-center justify-center gap-6">
       <div className="bg-muted flex size-14 items-center justify-center rounded-full">
@@ -11,5 +9,4 @@ export const NoResults = memo(() => {
       <p className="text-muted-foreground text-center">No moods found</p>
     </div>
   );
-});
-NoResults.displayName = "NoResults";
+};

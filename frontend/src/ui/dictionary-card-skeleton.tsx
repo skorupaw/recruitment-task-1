@@ -1,9 +1,8 @@
-import { memo } from "react";
 import { Card, CardContent, CardHeader } from "@/ui/primitives/card";
 import { Separator } from "@/ui/primitives/separator";
 import { Skeleton } from "@/ui/primitives/skeleton";
 
-export const DictionaryCardSkeleton = memo(() => {
+export const DictionaryCardSkeleton = () => {
   return (
     <Card
       className="relative col-span-1 h-96 w-full shadow-lg lg:col-span-3"
@@ -25,5 +24,4 @@ export const DictionaryCardSkeleton = memo(() => {
       </CardContent>
     </Card>
   );
-});
-DictionaryCardSkeleton.displayName = "DictionaryCardSkeleton";
+};
