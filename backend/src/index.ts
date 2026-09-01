@@ -1,11 +1,9 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import graphql from "./graphql.js";
 import rest from "./rest.js";
 
 const app = new Hono();
 
-app.route("/", graphql);
 app.route("/", rest);
 
 serve(

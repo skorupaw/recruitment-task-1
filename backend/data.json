@@ -3,10 +3,7 @@
     "id": 1,
     "title": "Happiness",
     "emoji": "😄",
-    "definitions": [
-      "The state of being happy.",
-      "A feeling of pleasure or contentment."
-    ],
+    "definitions": ["The state of being happy.", "A feeling of pleasure or contentment."],
     "partOfSpeech": "Noun",
     "description": "A state of being happy or experiencing pleasure.",
     "pronunciation": "/ˈhæp.i.nəs/"
@@ -15,10 +12,7 @@
     "id": 2,
     "title": "Sadness",
     "emoji": "😢",
-    "definitions": [
-      "The state of being sad or unhappy.",
-      "A feeling of sorrow or grief."
-    ],
+    "definitions": ["The state of being sad or unhappy.", "A feeling of sorrow or grief."],
     "partOfSpeech": "Noun",
     "description": "The state of being sad or unhappy.",
     "pronunciation": "/ˈsæd.nəs/"

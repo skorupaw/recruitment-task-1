@@ -54,10 +54,8 @@ export const moods =
         ? filteredEntries.slice(skip, limit)
         : filteredEntries.slice(skip);
 
-    const moods = filteredAndPaginatedEntries.map(entryToMood);
-
     return {
-      moods,
+      moods: filteredAndPaginatedEntries.map(entryToMood),
       pagination: { skip, limit: limit ?? 0, count: filteredEntries.length },
     };
   };
@@ -72,7 +70,7 @@ export const saveCurrentMood =
   (entries: DataEntry[]) =>
   (moodIds: string[]): Mood[] => {
     return moodIds
-      .map((id) => entries.find((mood) => `${mood.id}` === id))
+      .map((id) => entries.find((entry) => `${entry.id}` === id))
       .filter(Boolean)
       .map((item) => entryToMood(item as DataEntry));
   };

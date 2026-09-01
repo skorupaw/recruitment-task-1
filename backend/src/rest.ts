@@ -9,29 +9,31 @@ const controllers = controllersFactory(moodsData);
 
 rest
   .get("/", (c) => c.redirect("/api/moods"))
-  .get("/api/moods", (c) => {
+  .get("/api/moods", async (c) => {
     const query = c.req.query();
     const { skip = 0, limit, search } = query;
-    return delay()
-      .then(() =>
-        controllers.moods({ skip: Number(skip), limit: Number(limit), search }),
-      )
-      .then((result) => c.json(result));
+    await delay();
+    const result = controllers.moods({
+      skip: Number(skip),
+      limit: Number(limit),
+      search,
+    });
+    return c.json(result);
   })
-  .get("/api/moods/:id", (c) => {
+  .get("/api/moods/:id", async (c) => {
     const { id } = c.req.param();
     const mood = controllers.mood(id);
-    if (mood) {
-      return delay().then(() => c.json(mood));
+    if (!mood) {
+      return c.text("NOT_FOUND", 404);
     }
-    c.status(404);
-    return Promise.resolve(c.text("NOT_FOUND"));
+    await delay();
+    return c.json(mood);
   })
   .post("/api/moods/current", async (c) => {
     const { moodIds = [] } = await c.req.json<{ moodIds: string[] }>();
     const moods = controllers.saveCurrentMood(moodIds);
-    c.status(201);
-    return delay().then(() => c.json(moods));
+    await delay();
+    return c.json(moods, 201);
   });
 
 export default rest;
