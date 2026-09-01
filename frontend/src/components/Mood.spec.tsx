@@ -1,13 +1,16 @@
 import { render, screen } from "@/test-utils/testing-library";
-import Mood from "./Mood";
+import { MoodsProvider } from "@/lib/moods-context";
+import Moods from "./Moods";
 import { describe, expect, test } from "vitest";
 
-describe("Mood", () => {
-  test("mood details are being rendered", async () => {
-    setup();
+describe("Moods", () => {
+  test("renders list of mood cards", async () => {
+    render(
+      <MoodsProvider>
+        <Moods />
+      </MoodsProvider>,
+    );
 
-    expect(await screen.findByRole("heading", { name: /Happiness/ })).toBeInTheDocument();
+    expect(await screen.findByText("Happiness")).toBeInTheDocument();
   });
 });
-
-const setup = () => render(<Mood />, { path: "/mood/$moodId", routes: ["/mood/1"] });
