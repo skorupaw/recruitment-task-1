@@ -29,8 +29,8 @@ The application should display a list of moods provided by the API and allow a u
 
 ```json
 {
-  "node": ">= 20",
-  "pnpm": ">= 9"
+  "node": ">= 22",
+  "pnpm": ">= 10"
 }
 ```
 
@@ -59,8 +59,6 @@ Frontend application should be running at http://localhost:5173 and backend serv
 - We prefer a more straightforward solution relying on pure `react` than one depending on many external tools and libraries.
 
 - **Please add at least two or three unit tests. Testing is pretty important for us, and in general, thinking about testing should help you provide more quality code.**
-
-- You can choose the backend for your application — we accept solutions using either REST or GraphQL.
 
 - If you see any improvements that could make the app better, feel free to implement them! Just make sure they don’t impact end-to-end tests, and if they do, please adjust them accordingly.
 

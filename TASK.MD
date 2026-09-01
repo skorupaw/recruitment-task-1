@@ -24,7 +24,7 @@ _GET_ request should be sent to http://localhost:5173/api/moods
 
 **Types:**
 
-Types for the REST response can be found in [./frontend/src/api-types/rest.ts](./frontend/src/api-types/index.ts)
+Types for the REST response can be found in [./frontend/src/api-types/rest.ts](./frontend/src/api-types/rest.ts)
 
 **Example response:**
 
@@ -50,54 +50,6 @@ Types for the REST response can be found in [./frontend/src/api-types/rest.ts](.
     "skip": 0,
     "limit": 1,
     "count": 40
-  }
-}
-```
-
-</details>
-
-<details>
-<summary><strong>GraphQL API:</strong></summary>
-<p></p>
-
-> You can access GraphQL sandbox navigating to: http://localhost:3000/graphql
-
-**Request:**
-
-Apollo Client is already set up, so you can jump right into writing a `useQuery` hook.
-
-**Types:**
-
-Types for the GraphQL response can be found in [./frontend/src/api-types/graphql.ts](./frontend/src/api-types/graphql.ts)
-
-**Example response:**
-
-```json
-{
-  "data": {
-    "moods": {
-      "moods": [
-        {
-          "id": "1",
-          "emoji": "😄",
-          "description": "A state of being happy or experiencing pleasure.",
-          "title": "Happiness",
-          "word": {
-            "definitions": [
-              "The state of being happy.",
-              "A feeling of pleasure or contentment."
-            ],
-            "partOfSpeech": "Noun",
-            "pronunciation": "/ˈhæp.i.nəs/"
-          }
-        }
-      ],
-      "pagination": {
-        "skip": 0,
-        "limit": 1,
-        "count": 40
-      }
-    }
   }
 }
 ```
@@ -134,23 +86,7 @@ Types for the GraphQL response can be found in [./frontend/src/api-types/graphql
 
 **6.**
 
-- [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with appropriate variables:
-
-<details>
-<summary><strong>REST API:</strong></summary>
-<p></p>
-
-Add the query parameter to the URL: `limit=3`.
-
-</details>
-
-<details>
-<summary><strong>GraphQL API:</strong></summary>
-<p></p>
-
-Add the query variable: `{"limit": 3}`.
-
-</details>
+- [ ] Limit the number of displayed mood cards to 3. You can achieve this by calling the API with appropriate variables: add the query parameter to the URL: `limit=3`.
 
 ---
 
@@ -181,21 +117,7 @@ and so on.
 > [!IMPORTANT]  
 > The selection state should remain unaffected by the navigation.
 
-<details>
-<summary><strong>REST API:</strong></summary>
-<p></p>
-
 Extend query variables by adding `&skip=3`.
-
-</details>
-
-<details>
-<summary><strong>GraphQL API:</strong></summary>
-<p></p>
-
-Extend query variables by adding `{"skip": 3}`.
-
-</details>
 
 ---
 
@@ -214,21 +136,7 @@ Extend query variables by adding `{"skip": 3}`.
 > [!IMPORTANT]  
 > Pagination should reset when searching.
 
-<details>
-<summary><strong>REST API:</strong></summary>
-<p></p>
-
 Request variables should be set to `?limit=3&search="<search_query>"`
-
-</details>
-
-<details>
-<summary><strong>GraphQL API:</strong></summary>
-<p></p>
-
-Query variables should be set to `{"limit": 3, "search": "<search_query>"}"`
-
-</details>
 
 ---
 
@@ -284,43 +192,6 @@ Types for the REST response can be found in [./frontend/src/api-types/rest.ts](.
 
 </details>
 
-<details>
-<summary><strong>GraphQL API:</strong></summary>
-<p></p>
-
-**Request:**
-
-Utilize `mood(id: !ID)` query.
-
-**Types:**
-
-Types for the query can be found in [./frontend/src/api-types/graphql.ts](./frontend/src/api-types/graphql.ts)
-
-**Example response:**
-
-```json
-{
-  "data": {
-    "mood": {
-      "id": "1",
-      "emoji": "😄",
-      "description": "A state of being happy or experiencing pleasure.",
-      "title": "Happiness",
-      "word": {
-        "definitions": [
-          "The state of being happy.",
-          "A feeling of pleasure or contentment."
-        ],
-        "partOfSpeech": "Noun",
-        "pronunciation": "/ˈhæp.i.nəs/"
-      }
-    }
-  }
-}
-```
-
-</details>
-
 ---
 
 **13.**
@@ -331,25 +202,11 @@ Types for the query can be found in [./frontend/src/api-types/graphql.ts](./fron
 
 **14.**
 
-- [ ] Implement the functionality to send selected "moods" to our API. Use the `onSend` prop from the [`SaveButton`](./frontend/src/ui/save-button.tsx) component in the [`App`](./frontend/src/App.tsx) component.
+- [ ] Implement the functionality to send selected "moods" to our API. Use the `onSave` prop from the [`SaveButton`](./frontend/src/ui/save-button.tsx) component in the [`App`](./frontend/src/App.tsx) component.
 
   - [ ] Add pending state while waiting for the response from the server. This can be achieved using `isSaving` prop from the [`SaveButton`](./frontend/src/ui/save-button.tsx)
 
-<details>
-<summary><strong>REST API:</strong></summary>
-<p></p>
-
 Send _POST_ request to http://localhost:5173/api/moods/current with `{body: { moodIds: [<ids>] }}`.
-
-</details>
-
-<details>
-<summary><strong>GraphQL API:</strong></summary>
-<p></p>
-
-Send a mutation with the ids of selected moods `saveCurrentMoods(moodsIds: [ID!]!)`.
-
-</details>
 
 ---
 
@@ -361,6 +218,6 @@ Send a mutation with the ids of selected moods `saveCurrentMoods(moodsIds: [ID!]
 
 **16.**
 
-- [ ] Display success dialog if saving the moods was successful. This can be achieved utilizing [`MoodSaveSuccessModal`](./frontend/src/ui/mood-save-success-modal.tsx) and `isOpen` and `onOpenChange` props.
+- [ ] Display success dialog if saving the moods was successful. This can be achieved utilizing [`MoodSaveSuccessModal`](./frontend/src/ui/mood-save-success-modal.tsx) and `isOpen` and `onChangeOpen` props.
 
 ---
